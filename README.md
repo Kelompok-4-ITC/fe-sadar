@@ -1,11 +1,10 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Catatan Kami
+Penjelasan Folder : 
+- Tempat code ada di folder `/src`
+- folder `/assets` buat naruh icon/asset lainnya
+- folder `/components` buat naruh components react, seperti button, card. Biar bisa dipake secara berulang
+- folder `/css` buat naruh css sendiri
+- folder `/pages` buat naruh halaman halaman
 
 ### Catatan Kolaborasi
 LOCAL
