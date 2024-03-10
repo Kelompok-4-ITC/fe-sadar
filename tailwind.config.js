@@ -6,10 +6,14 @@ export default {
     "node_modules/preline/dist/*.js",
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+        fontFamily: {
+            'montserrat': ['Montserrat','sans-serif']
+        }
+    }
+},
   plugins: [
-    // require('@tailwindcss/forms'),
+    // ]]require('@tailwindcss/forms'),
     require("preline/plugin"),
   ],
 };
