@@ -4,7 +4,7 @@ function NomorHP() {
       <div className="-mt-4">
         <label
           for="input-label"
-          class="block w-max text-sm ml-3 px-1 bg-white text-[#1C1B1F] relative top-3  dark:text-white"
+          class="block w-max text-sm ml-3 px-1 bg-white text-[#1C1B1F] relative top-3 "
         >
           Nomor HP
         </label>

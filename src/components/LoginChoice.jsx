@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function LoginChoice() {
   return (
     <>
       <div class="pt-5 grid gap-y-10">
         <div className="flex items-center justify-between">
-          <label className="text-gray-500 font-medium flex items-center">
+          <label className="flex items-center font-medium text-gray-500">
             <input
               type="checkbox"
               className="leading-loose text-[#112211] mr-2"
@@ -19,9 +21,11 @@ function LoginChoice() {
         </button>
         <span class="flex justify-center font-medium text-sm -mt-4">
           Tidak punya akun?
-          <a href="" class="font-semibold text-[#EB5757] px-1 cursor-pointer">
-            Sign Up
-          </a>
+          <Link to="/register">
+            <a href="" class="font-semibold text-[#EB5757] px-1 cursor-pointer">
+              Sign Up
+            </a>
+          </Link>
         </span>
         <div class="flex items-center justify-center">
           <span class="w-16 border border-[#8DD3BB]"></span>
