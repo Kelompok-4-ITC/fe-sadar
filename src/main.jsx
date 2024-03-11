@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <LoginPage />
+      {/*kalau mau nyoba <RegisterPage /> */}
     </BrowserRouter>
   </React.StrictMode>,
 )
