@@ -10,7 +10,7 @@ Penjelasan Folder :
 LOCAL
 1. git checkout akbar -> masuk ke branch akbar
 2. edit code bebas
-3. git commit -a .
+3. git add.
 4. git commit -m "pesan"
 5. git push origin akbar -> kirim ke github
 
