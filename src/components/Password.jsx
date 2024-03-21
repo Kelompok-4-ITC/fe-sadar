@@ -23,7 +23,7 @@ function Password() {
         />
         <button
           type="button"
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 focus:outline-none"
+          className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm leading-5 focus:outline-none"
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? (
