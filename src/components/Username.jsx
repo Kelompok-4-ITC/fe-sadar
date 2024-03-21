@@ -1,4 +1,4 @@
-function Username() {
+function Username(props) {
   return (
     <div className="mt-4">
       <label
@@ -12,6 +12,8 @@ function Username() {
         id="input-label"
         class="py-3 px-4 w-full border-[#79747E] border rounded-[4px] text-base"
         placeholder="Masukkan Username Anda"
+        value={props.username}
+        onChange={e => setUsername(e.target.value)}
       ></input>
     </div>
   );
