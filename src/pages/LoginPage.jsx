@@ -1,13 +1,11 @@
-import Password from "../components/Password";
-import Username from "../components/Username";
-import LoginChoice from "../components/LoginChoice";
 import ShowPassword from "../assets/ShowPassword.svg";
 import CoverPassword from "../assets/CoverPassword.svg";
 import "../css/index.css";
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify'
+import axios from "axios";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -20,10 +18,89 @@ function LoginPage() {
     sessionStorage.clear();
   }, [])
 
-  const ProsesLogin = (e) => {
+  // const ProsesLogin = async (e) => {
+  //   e.preventDefault();
+  //   if (validasi()) {
+  //     // console.log('proses');
+
+  //     let inputObj = {
+  //       "username": username,
+  //       "password": password
+  //     }
+  //     // console.log(inputObj)
+  //     fetch("https://kelompok4-dot-personal-website-415207.et.r.appspot.com/login", {
+  //       method: 'POST',
+  //       headers: { 'content-type': 'application/json' },
+  //       body: JSON.stringify(inputObj)
+  //     }).then((res) => {
+  //       return res.json();
+  //     }).then((resp) => {
+  //       console.log(resp)
+  //       // if (Object.keys(resp).length === 0) {
+  //       //   toast.error('Login failed, invalid credentials');
+  //       // } else {
+  //       //   toast.success('Success');
+  //       //   sessionStorage.setItem('username', username);
+  //       //   sessionStorage.setItem('jwttoken', resp.jwtToken);
+  //       //   useNavigate('/')
+  //       // }
+  //       if (Object.keys(resp).length === 0) {
+  //         toast.error('Please Enter valid username');
+  //       } else {
+  //         if (resp.password === password) {
+  //           toast.success('Success');
+  //           sessionStorage.setItem('username', username);
+  //           useNavigate('/')
+  //         } else {
+  //           toast.error('Please Enter valid credentials');
+  //         }
+  //       }
+  //     }).catch((err) => {
+  //       toast.error('Login Failed due to :' + err.message);
+  //     });
+  //   }
+  // }
+
+  const ProceedLoginusingAPI = async (e) => {
     e.preventDefault();
     if (validasi()) {
-      console.log('proses')
+      ///implentation
+      // console.log('proceed');
+      let inputobj = {
+        "loginUser": username,
+        "password": password
+      };
+      console.log(inputobj);
+      await fetch("https://kelompok4-dot-personal-website-415207.et.r.appspot.com/login", {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(inputobj)
+      }).then((res) => {
+        return res.json();
+      }).then((resp) => {
+        console.log(resp)
+        if (resp.status == "Error") {
+          toast.error(resp.message);
+        } else {
+          toast.success('Success');
+          sessionStorage.setItem('username', username);
+          sessionStorage.setItem('jwttoken', resp.token);
+          navigate('/')
+        }
+        // if (Object.keys(resp).length === 0) {
+        //     toast.error('Please Enter valid username');
+        // } else {
+        //     if (resp.password === password) {
+        //         toast.success('Success');
+        //         sessionStorage.setItem('username',username);
+        //         usenavigate('/')
+        //     }else{
+        //         toast.error('Please Enter valid credentials');
+        //     }
+        // }
+      }).catch((err) => {
+        toast.error('Login Failed due to :' + err.message);
+      });
     }
   }
 
@@ -31,11 +108,11 @@ function LoginPage() {
     let valid = true;
     if (username === '' || username === null) {
       valid = false;
-      toast.warning("Isi username");
+      toast.warning("Isi username")
     }
-    if (password === '' || password == - null) {
+    if (password === '' || password == null) {
       valid = false;
-      toast.warning("Isi password");
+      toast.warning("Isi password")
     }
     return valid;
   }
@@ -47,7 +124,7 @@ function LoginPage() {
         Login untuk mengakses akun <span className="text-sadar text-[#3D9970]">Sadar</span> anda
       </div>
 
-      <form onSubmit={ProsesLogin}>
+      <form onSubmit={ProceedLoginusingAPI}>
         <div className="pt-7 grid gap-y-4">
           <div className="mt-4">
             <label
@@ -110,7 +187,8 @@ function LoginPage() {
             </label>
           </div>
 
-          <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-semibold border-[#4CAF50] bg-[#8DD3BB] text-white text-sm hover:bg-[#396a59]">
+          <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-semibold border-[#4CAF50] bg-[#8DD3BB] text-white text-sm hover:bg-[#396a59]" type="submit"
+          >
             Login
           </button>
 
@@ -163,6 +241,7 @@ function LoginPage() {
         </div>
       </form >
     </div >
+
   );
 }
 
