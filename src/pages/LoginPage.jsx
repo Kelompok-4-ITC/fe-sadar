@@ -18,48 +18,48 @@ function LoginPage() {
     sessionStorage.clear();
   }, [])
 
-  const ProsesLogin = async (e) => {
-    e.preventDefault();
-    if (validasi()) {
-      // console.log('proses');
+  // const ProsesLogin = async (e) => {
+  //   e.preventDefault();
+  //   if (validasi()) {
+  //     // console.log('proses');
 
-      let inputObj = {
-        "username": username,
-        "password": password
-      }
-      // console.log(inputObj)
-      fetch("https://kelompok4-dot-personal-website-415207.et.r.appspot.com/login", {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(inputObj)
-      }).then((res) => {
-        return res.json();
-      }).then((resp) => {
-        console.log(resp)
-        // if (Object.keys(resp).length === 0) {
-        //   toast.error('Login failed, invalid credentials');
-        // } else {
-        //   toast.success('Success');
-        //   sessionStorage.setItem('username', username);
-        //   sessionStorage.setItem('jwttoken', resp.jwtToken);
-        //   useNavigate('/')
-        // }
-        if (Object.keys(resp).length === 0) {
-          toast.error('Please Enter valid username');
-        } else {
-          if (resp.password === password) {
-            toast.success('Success');
-            sessionStorage.setItem('username', username);
-            useNavigate('/')
-          } else {
-            toast.error('Please Enter valid credentials');
-          }
-        }
-      }).catch((err) => {
-        toast.error('Login Failed due to :' + err.message);
-      });
-    }
-  }
+  //     let inputObj = {
+  //       "username": username,
+  //       "password": password
+  //     }
+  //     // console.log(inputObj)
+  //     fetch("https://kelompok4-dot-personal-website-415207.et.r.appspot.com/login", {
+  //       method: 'POST',
+  //       headers: { 'content-type': 'application/json' },
+  //       body: JSON.stringify(inputObj)
+  //     }).then((res) => {
+  //       return res.json();
+  //     }).then((resp) => {
+  //       console.log(resp)
+  //       // if (Object.keys(resp).length === 0) {
+  //       //   toast.error('Login failed, invalid credentials');
+  //       // } else {
+  //       //   toast.success('Success');
+  //       //   sessionStorage.setItem('username', username);
+  //       //   sessionStorage.setItem('jwttoken', resp.jwtToken);
+  //       //   useNavigate('/')
+  //       // }
+  //       if (Object.keys(resp).length === 0) {
+  //         toast.error('Please Enter valid username');
+  //       } else {
+  //         if (resp.password === password) {
+  //           toast.success('Success');
+  //           sessionStorage.setItem('username', username);
+  //           useNavigate('/')
+  //         } else {
+  //           toast.error('Please Enter valid credentials');
+  //         }
+  //       }
+  //     }).catch((err) => {
+  //       toast.error('Login Failed due to :' + err.message);
+  //     });
+  //   }
+  // }
 
   const ProceedLoginusingAPI = async (e) => {
     e.preventDefault();
@@ -85,7 +85,7 @@ function LoginPage() {
           toast.success('Success');
           sessionStorage.setItem('username', username);
           sessionStorage.setItem('jwttoken', resp.token);
-          useNavigate('/')
+          navigate('/')
         }
         // if (Object.keys(resp).length === 0) {
         //     toast.error('Please Enter valid username');
