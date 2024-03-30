@@ -1,5 +1,6 @@
-import Username from "../components/Username";
-import Password from "../components/Password";
+import Username from "../components/auth/Username";
+import Password from "../components/auth/Password";
+
 import BtnDefault from "../components/BtnDefault";
 import "../css/index.css";
 
