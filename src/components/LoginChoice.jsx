@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function LoginChoice() {
   return (
     <>
-      <div class="pt-5 grid gap-y-10">
+      <div className="pt-5 grid gap-y-10">
         <div className="flex items-center justify-between">
           <label className="flex items-center font-medium text-gray-500">
             <input
@@ -16,32 +16,32 @@ function LoginChoice() {
           </label>
         </div>
 
-        <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-semibold border-[#4CAF50] bg-[#8DD3BB] text-white text-sm hover:bg-[#396a59]">
+        <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-semibold border-[#4CAF50] bg-[#8DD3BB] text-white text-sm hover:bg-[#396a59]" type="submit"
+        >
           Login
         </button>
-        <span class="flex justify-center font-medium text-sm -mt-4">
+
+        <span className="flex justify-center font-medium text-sm -mt-4">
           Tidak punya akun?
-          <Link to="/register">
-            <a href="" class="font-semibold text-[#EB5757] px-1 cursor-pointer">
-              Sign Up
-            </a>
+          <Link to="/register" className="font-semibold text-[#EB5757] px-1 cursor-pointer">
+            Sign Up
           </Link>
         </span>
-        <div class="flex items-center justify-center">
-          <span class="w-16 border border-[#8DD3BB]"></span>
-          <span class="px-4 w-fit text-[#8DD3BB] text-sm">
+        <div className="flex items-center justify-center">
+          <span className="w-16 border border-[#8DD3BB]"></span>
+          <span className="px-4 w-fit text-[#8DD3BB] text-sm">
             Atau Login dengan
           </span>
-          <span class="w-16 border border-[#8DD3BB]"></span>
+          <span className="w-16 border border-[#8DD3BB]"></span>
         </div>
-        <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-medium border-[#8DD3BB] relative hover:bg-[#e5e5e5]">
+        <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-[4px] font-medium border-[#8DD3BB] relative hover:bg-[#e5e5e5]">
           <span>
             <svg
               width="24px"
               height="24px"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
             >
               <path
                 fill="#EA4335 "
@@ -62,8 +62,9 @@ function LoginChoice() {
             </svg>
           </span>
         </button>
-        <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 font-medium relative hover:bg-[#e5e5e5] text-sm">
-          {" "}
+        <button
+          className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 font-medium relative hover:bg-[#e5e5e5] text-sm"
+        >
           Login Sebagai Tamu
         </button>
       </div>
