@@ -112,7 +112,7 @@ function RegisterPage() {
 
   return (
     <div className="p-8 grid gap-y-4">
-      <BackButton />
+      <BackButton path={"/login"} />
       <h1 className="font-semibold text-4xl pointer-events-none">Register</h1>
       <div className="text-[#202020] pointer-events-none">
         Buat akun <span className="text-sadar text-[#3D9970]">Sadar</span> anda

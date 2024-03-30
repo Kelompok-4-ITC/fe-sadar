@@ -75,22 +75,26 @@ function LoginPage() {
     }
     return valid;
   }
-  
+
   return (
-    <div className="p-8 grid gap-y-4">
-      <h1 className="font-semibold text-4xl pointer-events-none">Login</h1>
-      <div className="text-[#202020] pointer-events-none">
-        Login untuk mengakses akun <span className="text-sadar text-[#3D9970]">Sadar</span> anda
+    <div className="p-7 flex flex-col">
+      <div className="flex flex-col gap-4">
+        <h1 className="font-semibold text-4xl pointer-events-none">Login</h1>
+        <div className="text-t-black pointer-events-none">
+          Login untuk mengakses akun <span className="text-sadar-thrid-black font-medium text-base">Sadar</span> anda
+        </div>
       </div>
 
-      <form onSubmit={prosesLoginAPI}>
-        <div className="pt-7 grid gap-y-4">
-          <Username value={username} onChange={handleUsername} />
-          <Password value={password} onChange={handlePassword} />
-        </div>
+      <div>
+        <form onSubmit={prosesLoginAPI}>
+          <div className="pt-7 grid gap-y-4">
+            <Username value={username} onChange={handleUsername} />
+            <Password value={password} onChange={handlePassword} />
 
-        <LoginChoice />
-      </form >
+            <LoginChoice />
+          </div>
+        </form >
+      </div>
     </div >
 
   );

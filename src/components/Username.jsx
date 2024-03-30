@@ -1,9 +1,9 @@
 function Username({ value, onChange }) {
   return (
-    <div className="mt-4">
+    <div >
       <label
         htmlFor="username-input"
-        className="block w-max text-sm ml-3 px-1 bg-white text-[#1C1B1F] relative top-3 "
+        className="block w-max text-sm ml-3 px-1 bg-white text-[#1C1B1F] relative top-3 rounded-sm "
       >
         Username
       </label>
