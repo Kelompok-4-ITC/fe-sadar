@@ -3,7 +3,7 @@ import ShowPassword from "../assets/ShowPassword.svg";
 import CoverPassword from "../assets/CoverPassword.svg";
 
 
-function Password() {
+function Password({ value, onChange }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -20,6 +20,9 @@ function Password() {
           id="password-input"
           className="py-3 px-4 w-full border border-[#79747E] rounded-[4px] text-base"
           placeholder="Masukkan Password Anda"
+          name="password"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
         />
         <button
           type="button"
@@ -27,9 +30,9 @@ function Password() {
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? (
-            <img src={ShowPassword} className="h-full" alt="Kembali"/>
+            <img src={ShowPassword} className="h-full" alt="Kembali" />
           ) : (
-            <img src={CoverPassword} className="h-full" alt="Kembali"/>
+            <img src={CoverPassword} className="h-full" alt="Kembali" />
           )}
         </button>
       </div>
