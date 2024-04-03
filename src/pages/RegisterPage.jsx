@@ -54,54 +54,22 @@ function RegisterPage() {
     return valid;
   }
 
-  const inputForm = {
-    userName: username,
-    email: email,
-    password: password,
-    role: "Customer",
-    fullName: "Testing",
-    tanggalLahir: "2004-09-09",
-    noHP: "082177778888"
-  }
-
   // Proses registerasi
   const prosesRegisterAPI = async (e) => {
     e.preventDefault();
     if (validasi()) {
       // console.log("proses")
-      console.log(inputForm);
+      // console.log(inputForm);
 
       // Note : ngambil datanya, lalu umpan datanya ke halaman berikutnya, baru registernya disitu
-      navigate("/register-data")
+      navigate('/register-data', {
+        state: {
+          userName: username,
+          email,
+          password
+        }
+      });
 
-
-      // await axios({
-      //   method: "post",
-      //   url: "https://kelompok4-dot-personal-website-415207.et.r.appspot.com/register",
-      //   headers: { 'content-type': 'application/json' },
-      //   data: {
-      //     userName: username,
-      //     email: email,
-      //     password: password,
-      //     noHP: noHp,
-      //     // Yang data bawah ini nanti ganti test
-      //     role: "Customer",
-      //     fullName: "Testing",
-      //     tanggalLahir: "2004-09-09"
-      //   }
-      // }).then((res) => {
-      //   console.log(res.data)
-      //   if (res.status == "Error") {
-      //     toast.error(res.message);
-      //   } else {
-      //     toast.success('Berhasil Mendaftar');
-      //     sessionStorage.setItem('username', username);
-      //     sessionStorage.setItem('jwttoken', res.token);
-      //     navigate('/')
-      //   }
-      // }).catch((err) => {
-      //   toast.error(`Gagal Login Karena : ${err.message} `);
-      // });
     }
   }
 

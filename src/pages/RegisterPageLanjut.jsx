@@ -5,7 +5,7 @@ import "../css/index.css";
 import NomerHP from "../components/auth/NomerHP";
 
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify'
 import axios from "axios";
 
@@ -13,8 +13,13 @@ function RegisterPageLanjut() {
   // useState Data
   const [NomerHp, setNomerHp] = useState('');
 
+
   // untuk navigate
   const navigate = useNavigate();
+
+  // mengambil data dari halaman sebelumnya
+  const location = useLocation();
+  const data = location.state;
 
   // Pertama kali di cek
   useEffect(() => {
@@ -37,9 +42,9 @@ function RegisterPageLanjut() {
   }
 
   const inputForm = {
-    userName: "dari sebelumnya",
-    email: "dari sebelumnya",
-    password: "dari sebelumnya",
+    userName: data.userName,
+    email: data.email,
+    password: data.password,
     role: "Customer",
     fullName: "Testing",
     tanggalLahir: "2004-09-09",
