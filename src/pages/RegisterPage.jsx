@@ -108,8 +108,6 @@ function RegisterPage() {
     }
   }
 
-
-
   return (
     <div className="p-8 grid gap-y-4">
       <BackButton path={"/login"} />

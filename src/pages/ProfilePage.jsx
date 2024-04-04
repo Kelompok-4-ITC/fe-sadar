@@ -21,6 +21,7 @@ function ProfilePage() {
         </div>
       </div>
 
+      {/* Header dan PFP */}
       <div className="fixed ">
         <div className="ml-[10px] w-[340px] h-[260px] mt-[46px]">
           <img src={Header} alt="" className="" />
@@ -31,6 +32,11 @@ function ProfilePage() {
         </div>
       </div>
 
+      {/* username */}
+      
+
+
+      {/* navbar */}
       <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
         <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">
