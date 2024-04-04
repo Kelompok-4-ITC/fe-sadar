@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ShowPassword from "../assets/ShowPassword.svg";
-import CoverPassword from "../assets/CoverPassword.svg";
+import ShowPassword from "../../assets/ShowPassword.svg";
+import CoverPassword from "../../assets/CoverPassword.svg";
 
 
 function Password({ value, onChange }) {
