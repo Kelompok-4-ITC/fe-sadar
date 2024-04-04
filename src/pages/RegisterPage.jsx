@@ -72,8 +72,7 @@ function RegisterPage() {
 
     }
   }
-
-
+  
   return (
     <main className="p-8 flex flex-col gap-5">
       <header className="flex flex-col gap-3">
