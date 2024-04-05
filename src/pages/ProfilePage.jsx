@@ -9,7 +9,12 @@ import PFP from "../assets/PhotoProfile.svg";
 import Edit from "../assets/IconEditProfile.svg";
 import "../css/index.css";
 
+import Navbar from "../components/Navbar";
+
 function ProfilePage() {
+  // Sekarang Halaman Profile
+  const valueNavbar = 'profile';
+
   return (
     <div className="h-screen relative py-[24px]">
       <div className="fixed top-0 px-5 py-2.5 w-full">
@@ -33,67 +38,15 @@ function ProfilePage() {
       </div>
 
       {/* username */}
-      
+
 
 
       {/* navbar */}
-      <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
-        <div className="flex justify-between">
-          <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
-              className="flex flex-col items-center justify-center text-center"
-            >
-              <div className="relative">
-                <img src={Home} alt="" className="w-6 h-6" />
-                <img
-                  src={HoverHome}
-                  alt=""
-                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
-                />
-              </div>
-
-              <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
-                Home
-              </span>
-            </a>
-          </div>
-          <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
-              className="flex flex-col items-center justify-center text-center"
-            >
-              <img src={Process} alt="" className="w-6 h-6" />
-              <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
-                Process
-              </span>
-            </a>
-          </div>
-          <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
-              className="flex flex-col items-center justify-center text-center"
-            >
-              <img src={Chat} alt="" className="w-6 h-6" />
-              <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
-                Chat
-              </span>
-            </a>
-          </div>
-          <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
-              className="flex flex-col items-center justify-center text-center icon-profile"
-            >
-              <img src={Icon} alt="" className="w-6 h-6" />
-              <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
-                Profile
-              </span>
-            </a>
-          </div>
-        </div>
+      <div className="bottom-0 fixed w-screen border border-sadar-secondary-color bg-white">
+        <Navbar value={valueNavbar}></Navbar>
       </div>
     </div>
+
   );
 }
 

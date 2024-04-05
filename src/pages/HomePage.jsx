@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import Logo from "../assets/LogoSadar.svg";
 import Notification from "../assets/Notification.svg";
 import Photo from "../assets/corosek.png";
@@ -13,8 +14,26 @@ import Shop from "../assets/Shop.svg";
 import AboutUs from "../assets/BannerAboutUs.svg";
 import ArrowButton from "../assets/ArrowButtonBanner.svg";
 import Berita1 from "../img/Berita1.svg";
+import Navbar from "../components/Navbar";
+
 
 function HomePage() {
+  // Sekarang Halaman Home
+  const valueNavbar = 'home';
+
+  // untuk navigate
+  const navigate = useNavigate();
+  function keTentangKami() {
+    navigate('/test')
+  }
+  function keBerita() {
+    navigate('/berita')
+  }
+  function keNotif() {
+    navigate('/notifikasi')
+  }
+
+
   return (
     // <div className="flex flex-col items-center justify-center h-svh">
     //   <div>Ini Halaman HomePage</div>
@@ -27,9 +46,9 @@ function HomePage() {
         <div className="w-screen py-[10px] px-[20px] bg-white ">
           <div className="flex flex-row justify-between">
             <div className="flex flex-row content-center items-center text-[20px] font-semibold">
-              <img src={Logo} alt="" /> SADAR
+              <img src={Logo} /> SADAR
             </div>
-            <img src={Notification} alt="" />
+            <img src={Notification} className="cursor-pointer" onClick={keNotif} />
           </div>
         </div>
       </div>
@@ -53,7 +72,9 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="flex w-[340px] h-[100px] px-[15px] bg-cover bg-[url('../assets/BannerAboutUs.svg')] flex-row item-center border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
+          <div
+            className="flex w-[340px] h-[100px] px-[15px] bg-cover bg-[url('../assets/BannerAboutUs.svg')] flex-row item-center border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025] cursor-pointer"
+            onClick={keTentangKami}>
             <div className="m-auto font-bold text-[20px] text-white">
               Kenalan dengan Kami Kelompok 4 - ITC
             </div>
@@ -66,7 +87,7 @@ function HomePage() {
           </div>
 
           <div>
-            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
+            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]" onClick={keBerita}>
               <div className="flex flex-row w-[340px] h-[99px] items-center space-x-[10px]">
                 <img
                   src={Berita1}
@@ -83,7 +104,7 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
               <div className="flex flex-row w-[340px] h-[99px] items-center space-x-[10px]">
                 <img
@@ -125,7 +146,8 @@ function HomePage() {
 
       {/* navbar */}
       <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
-        <div className="flex justify-between">
+        <Navbar value={valueNavbar} />
+        {/* <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">
             <a
               href="#"
@@ -178,7 +200,7 @@ function HomePage() {
               </span>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
