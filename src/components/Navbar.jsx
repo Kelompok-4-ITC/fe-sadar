@@ -64,7 +64,7 @@ function Navbar({ value }) {
                 src={IconProses}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-black text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-black text-center'>Process</span>
             </>
             :
             <>
@@ -72,7 +72,7 @@ function Navbar({ value }) {
                 src={IconProsesMati}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-grey text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-grey text-center'>Process</span>
             </>
           }
         </div>
@@ -86,7 +86,7 @@ function Navbar({ value }) {
                 src={IconChat}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-black text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-black text-center'>Chat</span>
             </>
             :
             <>
@@ -94,7 +94,7 @@ function Navbar({ value }) {
                 src={IconChatMati}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-grey text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-grey text-center'>Chat</span>
             </>
           }
         </div>
@@ -108,7 +108,7 @@ function Navbar({ value }) {
                 src={IconProfile}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-black text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-black text-center'>Profile</span>
             </>
             :
             <>
@@ -116,7 +116,7 @@ function Navbar({ value }) {
                 src={IconProfileMati}
                 className='w-full'
               />
-              <span className='font-semibold text-xs text-t-grey text-center'>Home</span>
+              <span className='font-semibold text-xs text-t-grey text-center'>Profile</span>
             </>
           }
         </div>

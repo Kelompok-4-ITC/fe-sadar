@@ -9,7 +9,7 @@ import BeritaPage from './pages/BeritaPage'
 import ErrorPage from './pages/ErrorPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPageLanjut from './pages/RegisterPageLanjut'
-import TentangKamiPage from './pages/TentangKamiPage';
+import NotifikasiPage from './pages/NotifikasiPage';
 
 function App() {
   return (
@@ -34,8 +34,9 @@ function App() {
         <Route path="/register-data" element={<RegisterPageLanjut />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/berita" element={<BeritaPage />} />
+        <Route path="/notifikasi" element={<NotifikasiPage />} />
         {/* Error Page */}
-        <Route path="/test" element={<TentangKamiPage />} />
+        <Route path="/test" element={<NotifikasiPage />} />
         <Route path="/*" element={<ErrorPage />} />
 
       </Routes>
