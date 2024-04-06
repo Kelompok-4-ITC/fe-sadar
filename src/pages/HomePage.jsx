@@ -72,7 +72,8 @@ function HomePage() {
             </div>
           </div>
 
-          <div
+          {/* NOTE : Kata PM Gak usah pake ini  */}
+          {/* <div
             className="flex w-[340px] h-[100px] px-[15px] bg-cover bg-[url('../assets/BannerAboutUs.svg')] flex-row item-center border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025] cursor-pointer"
             onClick={keTentangKami}>
             <div className="m-auto font-bold text-[20px] text-white">
@@ -80,7 +81,7 @@ function HomePage() {
             </div>
             <img src={ArrowButton} alt="" className="w-[30px]" />
             <div></div>
-          </div>
+          </div> */}
 
           <div className="font-bold text-black text-[20px] py-[10px]">
             Berita Apa Hari Ini?
@@ -145,7 +146,8 @@ function HomePage() {
       </div>
 
       {/* navbar */}
-      <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
+      <div className="bottom-0 fixed w-screen">
+        {/* <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white"> */}
         <Navbar value={valueNavbar} />
         {/* <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">
@@ -202,6 +204,7 @@ function HomePage() {
           </div>
         </div> */}
       </div>
+
     </div>
   );
 }
