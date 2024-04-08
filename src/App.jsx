@@ -9,7 +9,16 @@ import BeritaPage from './pages/BeritaPage'
 import ErrorPage from './pages/ErrorPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPageLanjut from './pages/RegisterPageLanjut'
-import NotifikasiPage from './pages/NotifikasiPage';
+import NotifikasiPage from './pages/NotifikasiPage'
+
+// Fitur Pick Up
+import PickUpPage from './pages/pick-up/PickUpPage'
+import SuksesPage from './pages/pick-up/SuksesPage'
+import TodoPage from './pages/pick-up/TodoPage'
+
+// Fitur Drop Off
+import DropOffPage from './pages/drop-off/DropOffPage';
+import TahapSatuPage from './pages/drop-off/TahapSatuPage';
 
 function App() {
   return (
@@ -35,8 +44,16 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/berita" element={<BeritaPage />} />
         <Route path="/notifikasi" element={<NotifikasiPage />} />
+        {/* Fitur - Pick Up */}
+        <Route path="/pick-up" element={<PickUpPage />} />
+        <Route path="/pick-up/sukses" element={<SuksesPage />} />
+
+        {/* Fitur - Drop Off */}
+        <Route path="/drop-off" element={<DropOffPage />} />
+        <Route path="/drop-off/tahap-satu" element={<TahapSatuPage />} />
+
         {/* Error Page */}
-        <Route path="/test" element={<NotifikasiPage />} />
+        <Route path="/test" element={<TodoPage />} />
         <Route path="/*" element={<ErrorPage />} />
 
       </Routes>
