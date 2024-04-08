@@ -1,6 +1,10 @@
+import {Link} from "react-router-dom";
 import Logout from "../assets/Logout.svg";
 import Home from "../assets/Home.svg";
 import HoverHome from "../assets/HoverHome.svg";
+import HoverProcess from "../assets/HoverProcess.svg";
+import HoverChat from "../assets/HoverChat.svg";
+import HoverIcon from "../assets/HoverIconProfile.svg";
 import Process from "../assets/Process.svg";
 import Chat from "../assets/Chat.svg";
 import Icon from "../assets/IconProfile.svg";
@@ -33,15 +37,13 @@ function ProfilePage() {
       </div>
 
       {/* username */}
-      
-
 
       {/* navbar */}
       <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
         <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex flex-col items-center justify-center text-center"
             >
               <div className="relative">
@@ -56,14 +58,21 @@ function ProfilePage() {
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Home
               </span>
-            </a>
+            </Link>
           </div>
           <div className="flex-1 group flex items-center justify-center">
             <a
               href="#"
               className="flex flex-col items-center justify-center text-center"
             >
-              <img src={Process} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Process} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverProcess}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Process
               </span>
@@ -74,7 +83,14 @@ function ProfilePage() {
               href="#"
               className="flex flex-col items-center justify-center text-center"
             >
-              <img src={Chat} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Chat} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverChat}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Chat
               </span>
@@ -85,7 +101,14 @@ function ProfilePage() {
               href="#"
               className="flex flex-col items-center justify-center text-center icon-profile"
             >
-              <img src={Icon} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Icon} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverIcon}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Profile
               </span>
