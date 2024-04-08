@@ -6,12 +6,15 @@ import Photo from "../assets/corosek.png";
 import Home from "../assets/Home.svg";
 import HoverHome from "../assets/HoverHome.svg";
 import Process from "../assets/Process.svg";
+import HoverProcess from "../assets/HoverProcess.svg";
 import Chat from "../assets/Chat.svg";
+import HoverChat from "../assets/HoverChat.svg";
 import Icon from "../assets/IconProfile.svg";
-import PickUp from "../assets/PickUp.svg";
-import DropOff from "../assets/DropOff.svg";
-import Shop from "../assets/Shop.svg";
-import AboutUs from "../assets/BannerAboutUs.svg";
+import HoverIcon from "../assets/HoverIconProfile.svg";
+import PickUp from "../img/Icon-PickUp.png";
+import DropOff from "../img/Icon-Drop-Off.png";
+import Shop from "../img/Icon-Shop.png";
+import AboutUs from "../img/Banner-Tentang-Kita.png";
 import ArrowButton from "../assets/ArrowButtonBanner.svg";
 import Berita1 from "../img/Berita1.svg";
 import Navbar from "../components/Navbar";
@@ -58,16 +61,28 @@ function HomePage() {
         {/* main content */}
         <div className="absolute w-screen -mt-[41px] py-[10px] pb-[61px] bg-white border rounded-t-[20px] content-center px-[10px]">
           <div className="flex flex-row space-x-[25px] justify-center pb-[10px]">
-            <div className="flex flex-col font-semibold text-[10px] text-center">
-              <img src={PickUp} alt="" />
+            <div className="flex flex-col font-semibold text-[10px] text-center gap-[5px]">
+              <img
+                src={PickUp}
+                alt=""
+                className="border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]"
+              />
               Pick Up
             </div>
-            <div className="flex flex-col font-semibold text-[10px] text-center">
-              <img src={DropOff} alt="" />
+            <div className="flex flex-col font-semibold text-[10px] text-center gap-[5px]">
+              <img
+                src={DropOff}
+                alt=""
+                className="border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]"
+              />
               Drop Off
             </div>
-            <div className="flex flex-col font-semibold text-[10px] text-center">
-              <img src={Shop} alt="" />
+            <div className="flex flex-col font-semibold text-[10px] text-center gap-[5px]">
+              <img
+                src={Shop}
+                alt=""
+                className="border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]"
+              />
               Shop
             </div>
           </div>
@@ -106,7 +121,7 @@ function HomePage() {
             </div>
 
             <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
-              <div className="flex flex-row w-[340px] h-[99px] items-center space-x-[10px]">
+              <div className="flex flex-row w-[330px] h-[99px] items-center space-x-[10px]">
                 <img
                   src={Berita1}
                   alt=""
@@ -124,7 +139,7 @@ function HomePage() {
             </div>
 
             <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
-              <div className="flex flex-row w-[340px] h-[99px] items-center space-x-[10px]">
+              <div className="flex flex-row w-[330px] h-[99px] items-center space-x-[10px]">
                 <img
                   src={Berita1}
                   alt=""
@@ -149,8 +164,8 @@ function HomePage() {
         <Navbar value={valueNavbar} />
         {/* <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex flex-col items-center justify-center text-center"
             >
               <div className="relative">
@@ -165,14 +180,21 @@ function HomePage() {
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Home
               </span>
-            </a>
+            </Link>
           </div>
           <div className="flex-1 group flex items-center justify-center">
             <a
               href="#"
               className="flex flex-col items-center justify-center text-center"
             >
-              <img src={Process} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Process} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverProcess}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Process
               </span>
@@ -183,7 +205,14 @@ function HomePage() {
               href="#"
               className="flex flex-col items-center justify-center text-center"
             >
-              <img src={Chat} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Chat} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverChat}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Chat
               </span>
@@ -194,7 +223,14 @@ function HomePage() {
               href="#"
               className="flex flex-col items-center justify-center text-center icon-profile"
             >
-              <img src={Icon} alt="" className="w-6 h-6" />
+              <div className="relative">
+                <img src={Icon} alt="" className="w-6 h-6" />
+                <img
+                  src={HoverIcon}
+                  alt=""
+                  className="w-6 h-6 absolute inset-0 opacity-0 hover:opacity-100"
+                />
+              </div>
               <span className="text-[10px] text-[#79747E] font-semibold hover:text-black">
                 Profile
               </span>

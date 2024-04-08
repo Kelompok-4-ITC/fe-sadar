@@ -1,6 +1,10 @@
+import {Link} from "react-router-dom";
 import Logout from "../assets/Logout.svg";
 import Home from "../assets/Home.svg";
 import HoverHome from "../assets/HoverHome.svg";
+import HoverProcess from "../assets/HoverProcess.svg";
+import HoverChat from "../assets/HoverChat.svg";
+import HoverIcon from "../assets/HoverIconProfile.svg";
 import Process from "../assets/Process.svg";
 import Chat from "../assets/Chat.svg";
 import Icon from "../assets/IconProfile.svg";
@@ -38,8 +42,6 @@ function ProfilePage() {
       </div>
 
       {/* username */}
-
-
 
       {/* navbar */}
       <div className="bottom-0 fixed w-screen border border-sadar-secondary-color bg-white">
