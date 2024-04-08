@@ -160,7 +160,7 @@ function HomePage() {
       </div>
 
       {/* navbar */}
-      <div className="bottom-0 p-[10px] fixed w-screen border border-[#DCE1E4] bg-white">
+      <div className="bottom-0 fixed w-screen border border-[#DCE1E4] bg-white">
         <Navbar value={valueNavbar} />
         {/* <div className="flex justify-between">
           <div className="flex-1 group flex items-center justify-center">

@@ -154,4 +154,4 @@ function TentangKamiPage() {
   )
 }
 
-export default TentangKami
+export default TentangKamiPage;
