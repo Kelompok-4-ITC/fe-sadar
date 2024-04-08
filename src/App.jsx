@@ -10,9 +10,9 @@ import ErrorPage from './pages/ErrorPage'
 import ProsesPage from './pages/ProsesPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPageLanjut from './pages/RegisterPageLanjut'
+import TentangKamiPage from './pages/TentangKamiPage';
 
 function App() {
-
   return (
     <>
       <ToastContainer
@@ -35,8 +35,9 @@ function App() {
         <Route path="/register-data" element={<RegisterPageLanjut />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/proses" element={<ProsesPage />} />
+        <Route path="/berita" element={<BeritaPage />} />
         {/* Error Page */}
-        <Route path="/test" element={<BeritaPage />} />
+        <Route path="/test" element={<TentangKamiPage />} />
         <Route path="/*" element={<ErrorPage />} />
 
       </Routes>

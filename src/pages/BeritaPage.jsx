@@ -6,7 +6,10 @@ export default function BeritaPage() {
     <div className="flex flex-col gap-3">
       <TitleComponent title={"Berita"} path={"/"} />
       <main className="px-[20px] flex flex-col gap-3 pb-5">
-        <img src={Berita1} alt="gambar" className="rounded-2xl w-full h-52 object-cover" />
+        <img
+          src={Berita1}
+          className="rounded-xl w-full h-48 object-cover"
+        />
         <h1 className="text-xl text-center font-semibold text-t-black">Hari Sampah Sedunia</h1>
         <article className="text-justify flex flex-col gap-4">
           <p>Lorem ipsum dolor sit amet consectetur. Nibh faucibus ut viverra maecenas pellentesque maecenas. Tincidunt quis sollicitudin amet lorem netus varius. At luctus tristique massa felis. Imperdiet mi in duis ut sed blandit orci eget eu. Lectus adipiscing lacus quis at iaculis lorem gravida. Mollis sodales enim sit pulvinar nunc morbi nunc dui eros. Elementum metus nibh tortor elit vel. Amet sociis nunc venenatis vitae pulvinar ut molestie sapien venenatis. Sit lorem mauris facilisis arcu massa tortor. Ac amet magna vivamus nisl sollicitudin faucibus consectetur. </p>
