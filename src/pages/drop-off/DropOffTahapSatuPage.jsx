@@ -6,7 +6,8 @@ function TahapSatuPage() {
   return (
     <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
       <div>
-        <TitleComponent path={"/drop-off"} title={"Drop Off"}></TitleComponent>
+        {/* <TitleComponent path={"/drop-off/cek"} title={"Drop Off"}></TitleComponent> */}
+        <h1 className="text-xl font-semibold text-t-black text-center px-5 py-3">Drop Off</h1>
         <div className="px-5">
           <div className="bg-t-black h-[3px] w-full rounded"></div>
         </div>

@@ -1,12 +1,12 @@
-import TitleComponent from "../../components/TitleComponent"
 import BadgeSukses from "../../img/badge-sukses.png"
 import { Link } from "react-router-dom"
 
-function SuksesPage() {
+function PickUpSuksesPage() {
   return (
     <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
       <div>
-        <TitleComponent path={"/pick-up"} title={"Pick Up"}></TitleComponent>
+        {/* <TitleComponent path={"/pick-up"} title={"Pick Up"}></TitleComponent> */}
+        <h1 className="text-xl font-semibold text-t-black text-center px-5 py-3">Pick Up</h1>
         <div className="px-5">
           <div className="bg-t-black h-[3px] w-full rounded"></div>
         </div>
@@ -26,4 +26,4 @@ function SuksesPage() {
   )
 }
 
-export default SuksesPage
+export default PickUpSuksesPage

@@ -32,6 +32,15 @@ function HomePage() {
   function keNotif() {
     navigate('/notifikasi')
   }
+  function kePickUp() {
+    navigate('/pick-up')
+  }
+  function keDropOff() {
+    navigate('/drop-off')
+  }
+  function keShop() {
+    navigate('/shop')
+  }
 
 
   return (
@@ -58,15 +67,15 @@ function HomePage() {
         {/* main content */}
         <div className="absolute w-screen -mt-[41px] py-[10px] pb-[61px] bg-white border rounded-t-[20px] content-center px-[10px]">
           <div className="flex flex-row space-x-[25px] justify-center pb-[10px]">
-            <div className="flex flex-col font-semibold text-[10px] text-center">
+            <div className="flex flex-col font-semibold text-[10px] text-center cursor-pointer" onClick={kePickUp}>
               <img src={PickUp} alt="" />
               Pick Up
             </div>
-            <div className="flex flex-col font-semibold text-[10px] text-center">
+            <div className="flex flex-col font-semibold text-[10px] text-center cursor-pointer" onClick={keDropOff}>
               <img src={DropOff} alt="" />
               Drop Off
             </div>
-            <div className="flex flex-col font-semibold text-[10px] text-center">
+            <div className="flex flex-col font-semibold text-[10px] text-center cursor-pointer" onClick={keShop}>
               <img src={Shop} alt="" />
               Shop
             </div>

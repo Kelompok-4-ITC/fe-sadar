@@ -13,12 +13,16 @@ import NotifikasiPage from './pages/NotifikasiPage'
 
 // Fitur Pick Up
 import PickUpPage from './pages/pick-up/PickUpPage'
-import SuksesPage from './pages/pick-up/SuksesPage'
+import PickUpCekPage from './pages/pick-up/PickUpCekPage';
+import PickUpSuksesPage from './pages/pick-up/PickUpSuksesPage';
 import TodoPage from './pages/pick-up/TodoPage'
 
 // Fitur Drop Off
 import DropOffPage from './pages/drop-off/DropOffPage';
-import TahapSatuPage from './pages/drop-off/TahapSatuPage';
+import DropOffLokasiPage from './pages/drop-off/DropOffLokasiPage'
+import DropOffCekPage from './pages/drop-off/DropOffCekPage'
+import DropOffTahapSatuPage from './pages/drop-off/DropOffTahapSatuPage';
+import TodoList from './pages/pick-up/ToDoList';
 
 function App() {
   return (
@@ -46,14 +50,18 @@ function App() {
         <Route path="/notifikasi" element={<NotifikasiPage />} />
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickUpPage />} />
-        <Route path="/pick-up/sukses" element={<SuksesPage />} />
+        <Route path="/pick-up/cek" element={<PickUpCekPage />} />
+        <Route path="/pick-up/sukses" element={<PickUpSuksesPage />} />
 
         {/* Fitur - Drop Off */}
         <Route path="/drop-off" element={<DropOffPage />} />
-        <Route path="/drop-off/tahap-satu" element={<TahapSatuPage />} />
+        <Route path="/drop-off/lokasi" element={<DropOffLokasiPage />} />
+        <Route path="/drop-off/cek" element={<DropOffCekPage />} />
+        <Route path="/drop-off/tahap-satu" element={<DropOffTahapSatuPage />} />
 
         {/* Error Page */}
         <Route path="/test" element={<TodoPage />} />
+        <Route path="/test/test" element={<TodoList />} />
         <Route path="/*" element={<ErrorPage />} />
 
       </Routes>
