@@ -25,6 +25,10 @@ import DropOffCekPage from './pages/drop-off/DropOffCekPage'
 import DropOffTahapSatuPage from './pages/drop-off/DropOffTahapSatuPage';
 import TodoList from './pages/pick-up/ToDoList';
 
+// Fitur Chat
+import ChatPage from './pages/chat/ChatPage';
+import ChatingPage from './pages/chat/ChatingPage';
+
 function App() {
   return (
     <>
@@ -51,6 +55,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/berita" element={<BeritaPage />} />
         <Route path="/notifikasi" element={<NotifikasiPage />} />
+
+        {/* Halaman Chat */}
+        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/chat/chating" element={<ChatingPage />} />
 
         {/* Halaman Proses */}
         <Route path="/proses" element={<ProsesPage />} />
