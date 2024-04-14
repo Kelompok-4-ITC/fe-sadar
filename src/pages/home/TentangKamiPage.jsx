@@ -1,18 +1,18 @@
-import BannerTeam from "../img/Banner-Team.png"
-import Photo from "../img/Profile-Orang.png"
-import IconTeamDart from "../img/icon-team-dart.png"
-import IconTeamDiscord from "../img/icon-team-discord.png"
-import IconTeamExpressJs from "../img/icon-team-expressjs.png"
-import IconTeamFigma from "../img/icon-team-figma.png"
-import IconTeamFlutter from "../img/icon-team-flutter.png"
-import IconTeamGithub from "../img/icon-team-github.png"
-import IconTeamNodeJs from "../img/icon-team-nodejs.png"
-import IconTeamReactJS from "../img/icon-team-reactjs.png"
-import IconTeamTailwind from "../img/icon-team-tailwind.png"
-import IconTeamTrello from "../img/icon-team-trello.png"
+import BannerTeam from "../../img/Banner-Team.png"
+import Photo from "../../img/Profile-Orang.png"
+import IconTeamDart from "../../img/icon-team-dart.png"
+import IconTeamDiscord from "../../img/icon-team-discord.png"
+import IconTeamExpressJs from "../../img/icon-team-expressjs.png"
+import IconTeamFigma from "../../img/icon-team-figma.png"
+import IconTeamFlutter from "../../img/icon-team-flutter.png"
+import IconTeamGithub from "../../img/icon-team-github.png"
+import IconTeamNodeJs from "../../img/icon-team-nodejs.png"
+import IconTeamReactJS from "../../img/icon-team-reactjs.png"
+import IconTeamTailwind from "../../img/icon-team-tailwind.png"
+import IconTeamTrello from "../../img/icon-team-trello.png"
 
 // Component
-import TitleComponent from '../components/TitleComponent'
+import TitleComponent from '../../components/TitleComponent'
 
 
 function TentangKamiPage() {

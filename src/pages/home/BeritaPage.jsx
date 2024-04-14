@@ -1,5 +1,5 @@
-import TitleComponent from "../components/TitleComponent"
-import Berita1 from "../img/Berita1.svg"
+import TitleComponent from "../../components/TitleComponent"
+import Berita1 from "../../img/Berita1.svg"
 
 export default function BeritaPage() {
   return (

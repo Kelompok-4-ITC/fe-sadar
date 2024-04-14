@@ -44,7 +44,7 @@ function ProfilePage() {
       {/* username */}
 
       {/* navbar */}
-      <div className="bottom-0 fixed w-screen border border-sadar-secondary-color bg-white">
+      <div className="bottom-0 fixed w-screen">
         <Navbar value={valueNavbar}></Navbar>
       </div>
     </div>
