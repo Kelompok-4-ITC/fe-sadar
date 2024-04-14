@@ -1,13 +1,15 @@
-import Username from "../components/auth/Username";
-import Password from "../components/auth/Password";
+import Password from "../../components/auth/Password";
+import Username from "../../components/auth/Username";
 
-import BtnDefault from "../components/BtnDefault";
-import "../css/index.css";
+import BtnDefault from "../../components/BtnDefault";
+import "../../css/index.css";
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import axios from "axios";
+
+import Berita1 from "../../img/Berita1.svg"
 
 function LoginPage() {
   // useState data

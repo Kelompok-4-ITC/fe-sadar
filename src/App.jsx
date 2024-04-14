@@ -2,14 +2,15 @@ import { Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import BeritaPage from './pages/BeritaPage'
+import HomePage from './pages/home/HomePage'
+import LoginPage from './pages/auth/LoginPage'
+import RegisterPage from './pages/auth/RegisterPage'
+import BeritaPage from './pages/home/BeritaPage'
 import ErrorPage from './pages/ErrorPage'
+import ProsesPage from './pages/ProsesPage'
 import ProfilePage from './pages/ProfilePage'
-import RegisterPageLanjut from './pages/RegisterPageLanjut'
-import NotifikasiPage from './pages/NotifikasiPage'
+import RegisterPageLanjut from './pages/auth/RegisterPageLanjut'
+import NotifikasiPage from './pages/home/NotifikasiPage'
 
 // Fitur Pick Up
 import PickUpPage from './pages/pick-up/PickUpPage'
@@ -41,13 +42,22 @@ function App() {
         transition:Bounce
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/* Fitur Auth */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/register-data" element={<RegisterPageLanjut />} />
-        <Route path="/profile" element={<ProfilePage />} />
+
+        {/* Halaman Home */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/berita" element={<BeritaPage />} />
         <Route path="/notifikasi" element={<NotifikasiPage />} />
+
+        {/* Halaman Proses */}
+        <Route path="/proses" element={<ProsesPage />} />
+
+        {/* Halaman Profile */}
+        <Route path="/profile" element={<ProfilePage />} />
+
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickUpPage />} />
         <Route path="/pick-up/cek" element={<PickUpCekPage />} />

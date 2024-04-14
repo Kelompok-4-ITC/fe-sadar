@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify'
 import axios from "axios";
-import "../css/index.css";
+import "../../css/index.css";
 
-import BackButton from "../components/BackButton";
-import BtnDefault from "../components/BtnDefault";
-import NomerHP from "../components/auth/NomerHP";
-import NamaLengkap from "../components/auth/NamaLengkap";
-import TanggalLahir from "../components/auth/TanggalLahir";
-import Role from "../components/auth/Role";
+import BackButton from "../../components/BackButton";
+import BtnDefault from "../../components/BtnDefault";
+
+import NomerHP from "../../components/auth/NomerHP";
+import NamaLengkap from "../../components/auth/NamaLengkap";
+import TanggalLahir from "../../components/auth/TanggalLahir";
+import Role from "../../components/auth/Role";
 
 function RegisterPageLanjut() {
   // useState Data

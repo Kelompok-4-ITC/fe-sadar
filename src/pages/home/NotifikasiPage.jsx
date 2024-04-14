@@ -1,6 +1,6 @@
 import { useState } from "react"
-import TitleComponent from "../components/TitleComponent"
-import BoxNotif from "../components/BoxNotif"
+import TitleComponent from "../../components/TitleComponent"
+import BoxNotif from "../../components/BoxNotif"
 
 
 function NotifikasiPage() {

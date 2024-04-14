@@ -19,7 +19,7 @@ function PickUpSuksesPage() {
             <h2 className="font-medium text-base">Silahkan Menunggu Driver</h2>
           </div>
         </div>
-        <Link to={"/process"} className="px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center">Melihat Proses</Link>
+        <Link to={"/proses"} className="px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center">Melihat Proses</Link>
         <Link to={"/"} className="px-3 py-2 rounded-lg border border-sadar-primary-color hover:border-sadar-fourth-black font-semibold text-lg text-t-black hover:text-t-grey text-center">Kembali Ke Menu</Link>
       </main>
     </div>
