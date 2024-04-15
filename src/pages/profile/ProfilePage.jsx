@@ -1,19 +1,19 @@
-import {Link} from "react-router-dom";
-import Logout from "../assets/Logout.svg";
-import Home from "../assets/Home.svg";
-import HoverHome from "../assets/HoverHome.svg";
-import HoverProcess from "../assets/HoverProcess.svg";
-import HoverChat from "../assets/HoverChat.svg";
-import HoverIcon from "../assets/HoverIconProfile.svg";
-import Process from "../assets/Process.svg";
-import Chat from "../assets/Chat.svg";
-import Icon from "../assets/IconProfile.svg";
-import Header from "../assets/HeaderProfile.svg";
-import PFP from "../assets/PhotoProfile.svg";
-import Edit from "../assets/IconEditProfile.svg";
-import "../css/index.css";
+import { Link } from "react-router-dom";
+import Logout from "../../assets/Logout.svg";
+import Home from "../../assets/Home.svg";
+import HoverHome from "../../assets/HoverHome.svg";
+import HoverProcess from "../../assets/HoverProcess.svg";
+import HoverChat from "../../assets/HoverChat.svg";
+import HoverIcon from "../../assets/HoverIconProfile.svg";
+import Process from "../../assets/Process.svg";
+import Chat from "../../assets/Chat.svg";
+import Icon from "../../assets/IconProfile.svg";
+import Header from "../../assets/HeaderProfile.svg";
+import PFP from "../../assets/PhotoProfile.svg";
+import Edit from "../../assets/IconEditProfile.svg";
+import "../../css/index.css";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
 function ProfilePage() {
   // Sekarang Halaman Profile
