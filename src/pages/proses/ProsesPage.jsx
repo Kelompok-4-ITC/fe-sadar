@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import History from "../assets/History.svg";
-import HoverHistory from "../assets/HoverHistory.svg";
-import PickUp from "../img/Icon-PickUp.png";
-import DropOff from "../img/Icon-Drop-Off.png";
+import History from "../../assets/History.svg";
+import HoverHistory from "../../assets/HoverHistory.svg";
+import PickUp from "../../img/Icon-PickUp.png";
+import DropOff from "../../img/Icon-Drop-Off.png";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
 function ProsesPage() {
   const valueNavbar = 'proses';

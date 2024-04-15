@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import BackButton from "../components/BackButton";
-import PickUp from "../img/Icon-PickUp.png";
-import DropOff from "../img/Icon-Drop-Off.png";
-import Location from "../img/icon-location.png";
-import Recycle from "../img/Logo Daur Ulang.png";
-import TombolBuka from "../img/Tombol-Buka.png";
-import Mouse from "../assets/Mouse.svg";
+import BackButton from "../../components/BackButton";
+import PickUp from "../../img/Icon-PickUp.png";
+import DropOff from "../../img/Icon-Drop-Off.png";
+import Location from "../../img/icon-location.png";
+import Recycle from "../../img/Logo Daur Ulang.png";
+import TombolBuka from "../../img/Tombol-Buka.png";
+import Mouse from "../../assets/Mouse.svg";
 
 function DetailRiwayat() {
   const navigate = useNavigate();

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import BackButton from "../components/BackButton";
-import Filter from "../assets/Filter.svg";
-import HoverFilter from "../assets/HoverFilter.svg";
-import PickUp from "../img/Icon-PickUp.png";
-import DropOff from "../img/Icon-Drop-Off.png";
+import BackButton from "../../components/BackButton";
+import Filter from "../../assets/Filter.svg";
+import HoverFilter from "../../assets/HoverFilter.svg";
+import PickUp from "../../img/Icon-PickUp.png";
+import DropOff from "../../img/Icon-Drop-Off.png";
 
 function RiwayatTransaksi() {
   const navigate = useNavigate();

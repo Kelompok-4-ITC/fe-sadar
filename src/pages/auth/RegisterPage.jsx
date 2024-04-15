@@ -1,10 +1,10 @@
-import Password from "../components/auth/Password";
-import Username from "../components/auth/Username";
-import Email from "../components/auth/Email";
+import Password from "../../components/auth/Password";
+import Username from "../../components/auth/Username";
+import Email from "../../components/auth/Email";
 
-import BackButton from "../components/BackButton";
-import BtnDefault from "../components/BtnDefault";
-import "../css/index.css";
+import BackButton from "../../components/BackButton";
+import BtnDefault from "../../components/BtnDefault";
+import "../../css/index.css";
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -71,7 +71,7 @@ function RegisterPage() {
 
     }
   }
-  
+
   return (
     <main className="p-8 flex flex-col gap-5">
       <header className="flex flex-col gap-3">
