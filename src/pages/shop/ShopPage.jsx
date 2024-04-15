@@ -7,8 +7,12 @@ import FotoProduct from '../../img/shop-foto-product.png'
 import LabelReuse from '../../img/shop-label-reuse.png'
 import LabelRecycle from '../../img/shop-label-recycle.png'
 import { useNavigate } from 'react-router-dom'
+import Navbar from "../../components/Navbar";
 
 function ShopPage() {
+  // Sekarang Halaman Home
+  const valueNavbar = 'home';
+
   const product = [
     {
       id: 1,
@@ -45,7 +49,7 @@ function ShopPage() {
 
   return (
     <>
-      <div className='flex flex-col gap-[10px] pb-10'>
+      <div className='flex flex-col gap-[10px] pb-20'>
         {/* Poster */}
         <section id="poster" className='border-b-2 border-dashed border-b-[#202020] w-full'>
           <div className="px-[13px] py-[11px] flex gap-[10px] justify-center items-center bg-[#8DD3BB] h-auto">
@@ -132,6 +136,11 @@ function ShopPage() {
             </div>
           ))}
         </main>
+        {/* navbar */}
+        <div className="bottom-0 fixed w-screen">
+          {/* <div className="bottom-0 fixed w-screen border border-[#DCE1E4] bg-white"> */}
+          <Navbar value={valueNavbar} />
+        </div>
       </div>
     </>
   )

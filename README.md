@@ -1,3 +1,12 @@
+# Getting started
+Memulai aplikasi di repository ini
+1. Clone repo ini
+2. masuk ke folder `fe-sadar`
+3. jalankan `npm install` di terminal
+4. jalankan `npm start dev` di terminal
+5. Buka url `http://localhost:5173/` di browser
+6. Aplikasi siap di gunakan / melakukan Slicing / Cek Fitur dll.
+
 # Catatan Kami
 Penjelasan Folder : 
 - Tempat code ada di folder `/src`
