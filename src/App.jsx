@@ -11,6 +11,8 @@ import ProsesPage from './pages/ProsesPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPageLanjut from './pages/RegisterPageLanjut'
 import TentangKamiPage from './pages/TentangKamiPage';
+import RiwayatTransaksi from './pages/RiwayatTransaksi';
+import DetailRiwayatPage from './pages/DetailRiwayatPage';
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
         draggable
         pauseOnHover={false}
         theme="colored"
-        transition:Bounce
+        transition="Bounce"
       />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -36,6 +38,8 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/proses" element={<ProsesPage />} />
         <Route path="/berita" element={<BeritaPage />} />
+        <Route path="/riwayat-transaksi" element={<RiwayatTransaksi />} />
+        <Route path="/detail-riwayat/:jenisPesanan/:kodePemesanan" element={<DetailRiwayatPage />} />
         {/* Error Page */}
         <Route path="/test" element={<TentangKamiPage />} />
         <Route path="/*" element={<ErrorPage />} />
