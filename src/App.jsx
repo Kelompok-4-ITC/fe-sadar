@@ -29,6 +29,10 @@ import TodoList from './pages/pick-up/ToDoList';
 import ChatPage from './pages/chat/ChatPage';
 import ChatingPage from './pages/chat/ChatingPage';
 
+// Fitur Shop
+import ShopPage from './pages/shop/ShopPage';
+import ShopDetailPage from './pages/shop/ShopDetailPage';
+
 function App() {
   return (
     <>
@@ -65,6 +69,10 @@ function App() {
 
         {/* Halaman Profile */}
         <Route path="/profile" element={<ProfilePage />} />
+
+        {/* Halaman Shop */}
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/detail" element={<ShopDetailPage />} />
 
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickUpPage />} />
