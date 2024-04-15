@@ -7,7 +7,12 @@ import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
 import BeritaPage from './pages/home/BeritaPage'
 import ErrorPage from './pages/ErrorPage'
-import ProfilePage from './pages/ProfilePage'
+import ProfilePage from './pages/profile/ProfilePage'
+
+//Fitur Profile
+import ProfileAchivementPage from './pages/profile/ProfileAchivementPage';
+import ProfileFaqPage from './pages/profile/ProfileFaqPage';
+import ProfileInfoPage from './pages/profile/ProfileInfoPage';
 
 //Fitur Proses
 import ProsesPage from './pages/proses/ProsesPage'
@@ -79,6 +84,9 @@ function App() {
 
         {/* Halaman Profile */}
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/achievment" element={<ProfileAchivementPage />} />
+        <Route path="/profile/faq" element={<ProfileFaqPage />} />
+        <Route path="/profile/info" element={<ProfileInfoPage />} />
 
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />
