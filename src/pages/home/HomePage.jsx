@@ -87,7 +87,7 @@ function HomePage() {
           </div>
 
           {/* NOTE : Kata PM Gak usah pake ini  */}
-          {/* <div
+          {/* <div>
             className="flex w-[340px] h-[100px] px-[15px] bg-cover bg-[url('../assets/BannerAboutUs.svg')] flex-row item-center border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025] cursor-pointer"
             onClick={keTentangKami}>
             <div className="m-auto font-bold text-[20px] text-white">

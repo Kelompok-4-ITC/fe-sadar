@@ -1,14 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import History from "../assets/History.svg";
-import HoverHistory from "../assets/HoverHistory.svg";
-import PickUp from "../img/Icon-PickUp.png";
-import DropOff from "../img/Icon-Drop-Off.png";
+import { Link, useNavigate } from "react-router-dom";
+import History from "../../assets/History.svg";
+import HoverHistory from "../../assets/HoverHistory.svg";
+import PickUp from "../../img/Icon-PickUp.png";
+import DropOff from "../../img/Icon-Drop-Off.png";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
 function ProsesPage() {
   const valueNavbar = 'proses';
+  const navigate = useNavigate();
+  
+  function keRiwayatTransaksi() {
+    navigate('/riwayat-transaksi');
+  }
+  
+  function keDetailRiwayat(jenisPesanan,kodePemesanan) {
+    navigate(`/detail-riwayat/${jenisPesanan}/${kodePemesanan}`);
+  }
+
   const [filter, setFilter] = useState("all");
 
   return (
@@ -17,7 +27,7 @@ function ProsesPage() {
         <div className="pb-[20px] font-normal text-[15px]">
           <div className="w-full h-fit flex flex-row items-center justify-between pb-[10px]">
             <div className="font-bold text-[25px] p-[10px]">Process </div>
-            <div className="relative">
+            <div className="relative" onClick={keRiwayatTransaksi}>
               <img src={History} alt="" className="" />
               <img
                 src={HoverHistory}
@@ -66,9 +76,10 @@ function ProsesPage() {
             {/* Pick Up */}
             <div className="flex flex-col py-[10px] gap-[10px]">
               <div
-                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] ${
+                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] cursor-pointer ${
                   filter === "all" || filter === "pickup" ? "" : "hidden"
-                }`}
+                }`} 
+                onClick={() => keDetailRiwayat("pickup","RNG7J7A")}
               >
                 <div className="p-[10px] bg-sadar-primary-color border-0 rounded-t-[10px] flex flex-row justify-between">
                   <div className="font-medium text-[13px]">
@@ -89,9 +100,10 @@ function ProsesPage() {
               </div>
               {/* DropOff */}
               <div
-                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] ${
+                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] cursor-pointer ${
                   filter === "all" || filter === "dropoff" ? "" : "hidden"
                 }`}
+                onClick={() => keDetailRiwayat("dropoff","KUI8K8A")}
               >
                 <div className="p-[10px] bg-sadar-primary-color border-0 rounded-t-[10px] flex flex-row justify-between">
                   <div className="font-medium text-[13px]">

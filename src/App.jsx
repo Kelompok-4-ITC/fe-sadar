@@ -7,8 +7,12 @@ import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
 import BeritaPage from './pages/home/BeritaPage'
 import ErrorPage from './pages/ErrorPage'
-import ProsesPage from './pages/ProsesPage'
 import ProfilePage from './pages/ProfilePage'
+
+//Fitur Proses
+import ProsesPage from './pages/proses/ProsesPage'
+import RiwayatTransaksi from './pages/proses/RiwayatTransaksi';
+import DetailRiwayatPage from './pages/proses/DetailRiwayatPage';
 import RegisterPageLanjut from './pages/auth/RegisterPageLanjut'
 import NotifikasiPage from './pages/home/NotifikasiPage'
 
@@ -47,7 +51,7 @@ function App() {
         draggable
         pauseOnHover={false}
         theme="colored"
-        transition:Bounce
+        transition="Bounce"
       />
       <Routes>
         {/* Fitur Auth */}
@@ -66,6 +70,12 @@ function App() {
 
         {/* Halaman Proses */}
         <Route path="/proses" element={<ProsesPage />} />
+
+        {/* Halaman RiwayatTransaksi */}
+        <Route path="/riwayat-transaksi" element={<RiwayatTransaksi />} />
+
+        {/* Halaman DetailRiwayat */}
+        <Route path="/detail-riwayat/:jenisPesanan/:kodePemesanan" element={<DetailRiwayatPage />} />
 
         {/* Halaman Profile */}
         <Route path="/profile" element={<ProfilePage />} />
