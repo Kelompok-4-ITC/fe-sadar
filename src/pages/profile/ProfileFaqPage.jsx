@@ -130,4 +130,4 @@ function ProfileFaqPage() {
   )
 }
 
-export default ProfileFaqPage
+export default ProfileFaqPage;

@@ -42,7 +42,7 @@ function HomePage() {
     //   <Link to="/login" className="font-bold text-red-500">Menuju ke Login</Link>
     // </div>
 
-    <div className="">
+    <div className="overflow-x-hidden">
       {/* headline */}
       <div className="fixed z-50">
         <div className="w-screen py-[10px] px-[20px] bg-white ">
