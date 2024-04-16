@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function ProfileFaqPage() {
   return (
-    <div>ProfileFaqPage</div>
-  )
+    <div>
+      
+    </div>
+  );
 }
 
-export default ProfileFaqPage
+export default ProfileFaqPage;
