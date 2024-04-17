@@ -58,7 +58,7 @@ function HomePage() {
       <div className="py-[51px]">
         <img src={Photo} alt="" />
         {/* main content */}
-        <div className="absolute w-screen -mt-[41px] py-[10px] pb-[61px] bg-white border rounded-t-[20px] content-center px-[10px]">
+        <div className="absolute w-screen -mt-[41px] py-[10px] pb-[61px] bg-white border-0 rounded-t-[20px] content-center px-[10px]">
           <div className="flex flex-row space-x-[25px] justify-center pb-[10px]">
             <div className="flex flex-col font-semibold text-[10px] text-center gap-[5px] cursor-pointer" onClick={kePickUp}>
               <img
