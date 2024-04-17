@@ -13,6 +13,7 @@ import ProfilePage from './pages/profile/ProfilePage'
 import ProfileAchivementPage from './pages/profile/ProfileAchivementPage';
 import ProfileFaqPage from './pages/profile/ProfileFaqPage';
 import ProfileInfoPage from './pages/profile/ProfileInfoPage';
+import PengaturanPage from './pages/profile/PengaturanPage';
 
 //Fitur Proses
 import ProsesPage from './pages/proses/ProsesPage'
@@ -84,9 +85,10 @@ function App() {
 
         {/* Halaman Profile */}
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/achievment" element={<ProfileAchivementPage />} />
+        <Route path="/profile/achievement" element={<ProfileAchivementPage />} />
         <Route path="/profile/faq" element={<ProfileFaqPage />} />
         <Route path="/profile/info" element={<ProfileInfoPage />} />
+        <Route path="/profile/setting" element={<PengaturanPage/>}/>
 
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />

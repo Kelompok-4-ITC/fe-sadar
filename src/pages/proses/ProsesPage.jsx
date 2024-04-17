@@ -27,7 +27,7 @@ function ProsesPage() {
         <div className="pb-[20px] font-normal text-[15px]">
           <div className="w-full h-fit flex flex-row items-center justify-between pb-[10px]">
             <div className="font-bold text-[25px] p-[10px]">Process </div>
-            <div className="relative" onClick={keRiwayatTransaksi}>
+            <div className="relative cursor-pointer" onClick={keRiwayatTransaksi}>
               <img src={History} alt="" className="" />
               <img
                 src={HoverHistory}
