@@ -1,39 +1,67 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../assets/HeaderProfile.svg";
 import PFP from "../../assets/PhotoProfile.svg";
 import Edit from "../../assets/IconEditProfile.svg";
 import Forward from "../../assets/Forward.svg";
 import InfoPersonal from "../../assets/InfoPersonal.svg";
+import HoverInfoPersonal from "../../assets/HoverInfoPersonal.svg";
 import Achievement from "../../assets/Achievement.svg";
+import HoverAchievement from "../../assets/HoverAchievement.svg";
 import RiwayatTransaksi from "../../assets/RiwayatTransaksi.svg";
+import HoverRiwayatTransaksi from "../../assets/HoverRiwayatTransaksi.svg";
 import FAQ from "../../assets/FAQ.svg";
+import HoverFAQ from "../../assets/HoverFAQ.svg";
 import Settings from "../../assets/Settings.svg";
+import HoverSetting from "../../assets/HoverSetting.svg";
 import Logout from "../../assets/Logout.svg";
-import HoverInfoPersonal from "../../assets/InfoPersonal.svg";
-import HoverAchievement from "../../assets/Achievement.svg";
-import HoverRiwayatTransaksi from "../../assets/RiwayatTransaksi.svg";
-import HoverFAQ from "../../assets/FAQ.svg";
-import HoverSettings from "../../assets/Settings.svg";
-import HoverLogout from "../../assets/Logout.svg";
-
+import HoverLogout from "../../assets/HoverLogout.svg";
+import Cancel from "../../assets/Cancel.svg";
+import Logout2 from "../../assets/Logout2.svg";
 import "../../css/index.css";
-
 import Navbar from "../../components/Navbar";
 
 function ProfilePage() {
-  // Sekarang Halaman Profile
   const valueNavbar = "profile";
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function keinfoPersonal() {
+    navigate("/profile/info");
+  }
+
+  function keRiwayatTransaksi() {
+    navigate("/riwayat-transaksi");
+  }
+
+  function keFAQ() {
+    navigate("/profile/faq");
+  }
+
+  function keAchievement() {
+    navigate("/profile/achievement");
+  }
+
+  function keSetting() {
+    navigate("/profile/setting");
+  }
+
+  function handleLogout() {
+    // Tambahkan logika logout disini
+    console.log("Proses logout...");
+    // Setelah logout, tutup modal
+    setIsModalOpen(false);
+  }
 
   return (
     <div>
-      <div className="h-screen relative py-[24px] mb-[100px]">
+      <div className="h-screen relative py-[24px] mb-[110px]">
         <div className="fixed top-0 px-5 py-2.5 w-full">
           <div className="flex items-center justify-center font-medium w-full text-center">
             <span className="text-[20px]">Profile</span>
           </div>
         </div>
 
-        {/* Header dan PFP */}
         <div className="fixed mt-[24px] pb-[24px] bg-white">
           <div className="flex flex-col mt-[26px] items-center justify-center w-screen gap-[24px]">
             <div>
@@ -49,7 +77,6 @@ function ProfilePage() {
                 </div>
               </div>
             </div>
-            {/* username */}
             <div className="px-[20px] w-full">
               <div className="group font-medium text-[16px] flex flex-col items-center w-full justify-center border-0 rounded-[10px] bg-sadar-fourth-white py-[5px] px-[15px] hover:border-[2px] hover:border-black hover:bg-sadar-primary-color hover:text-t-white">
                 <div>ITC-4 Driver</div>
@@ -60,87 +87,126 @@ function ProfilePage() {
           </div>
         </div>
 
-        {/* informasi akun */}
         <div className="mt-[410px] px-[10px] flex flex-col gap-[15px] py-[10px] font-medium text-[16px]">
-          <div className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]">
+          <div
+            className="group border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer hover:border-[3px] hover:border-sadar-fourth-black"
+            onClick={keinfoPersonal}
+          >
             <img src={InfoPersonal} alt="" />
+            <img
+              src={HoverInfoPersonal}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
             <div className="w-full">Info Personal</div>
             <img src={Forward} alt="" />
           </div>
 
-          <div className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]">
+          <div
+            className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer group hover:border-[3px] hover:border-sadar-fourth-black"
+            onClick={keRiwayatTransaksi}
+          >
             <img src={RiwayatTransaksi} alt="" />
+            <img
+              src={HoverRiwayatTransaksi}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
             <div className="w-full">Riwayat Transaksi</div>
             <img src={Forward} alt="" />
           </div>
 
-          <div className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]">
+          <div
+            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer"
+            onClick={keFAQ}
+          >
             <img src={FAQ} alt="" />
+            <img
+              src={HoverFAQ}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
             <div className="w-full">Pertanyaan dan Bantuan</div>
             <img src={Forward} alt="" />
           </div>
 
-          <div className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]">
+          <div
+            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer"
+            onClick={keAchievement}
+          >
             <img src={Achievement} alt="" />
+            <img
+              src={HoverAchievement}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
             <div className="w-full">Pencapaian</div>
             <img src={Forward} alt="" />
           </div>
 
-          <button
-            type="button"
-            data-hs-overlay="#logout"
-            className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]"
-          >
-            <img src={Logout} alt="" />
-            <div className="w-full text-start">Logout</div>
-            <img src={Forward} alt="" />
-          </button>
-
           <div
-            id="logout"
-            className="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
+            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer"
+            onClick={keSetting}
           >
-            <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all min-h-[calc(100%-3.5rem)] flex items-center w-full justify-center">
-              <div className="w-fit flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto gap-[25px] py-[20px] px-[10px]">
-                <h3 className="font-extrabold text-t-black text-[16px] w-full text-center">
-                  LOGOUT
-                </h3>
-                <div className="overflow-y-auto">
-                  <p className="font-bold text-[15px] text-t-black">
-                    Anda ingin keluar dari akun anda?
-                  </p>
-                </div>
-                <div className="flex justify-center items-center gap-x-[15px]">
-                  <button
-                    type="button"
-                    className="p-[5px] w-full h-[40px] flex flex-row justify-center items-center gap-x-2 text-[16px] font-extrabold rounded-[10px] border border-[#D9D9D9] text-[#D9D9D9]"
-                    data-hs-overlay="#logout"
-                  >
-                    Batal
-                  </button>
-                  <button
-                    type="button"
-                    className="p-[5px] w-full h-[40px] flex flex-row justify-center items-center gap-x-2 text-[16px] font-extrabold rounded-[10px] border-0 bg-[#D42828] text-white "
-                  >
-                    Keluar
-                  </button>
-                </div>
-              </div>
-            </div>
+            <img src={Settings} alt="" />
+            <img
+              src={HoverSetting}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
+            <div className="w-full">Pengaturan</div>
+            <img src={Forward} alt="" />
           </div>
 
-          <div className="border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px]">
-            <img src={Settings} alt="" />
-            <div className="w-full">Pengaturan</div>
+          <div
+            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <img src={Logout} alt="" />
+            <img
+              src={HoverLogout}
+              alt=""
+              className="absolute h-[30px] w-[30px] opacity-0 group-hover:opacity-100 group-hover:bg-white"
+            />
+            <div className="w-full">Logout</div>
             <img src={Forward} alt="" />
           </div>
         </div>
       </div>
 
-      {/* navbar */}
       <div className="bottom-0 fixed w-screen">
         <Navbar value={valueNavbar}></Navbar>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white py-[20px] px-[10px] rounded-[10px] flex flex-col gap-[25px]">
+            <h2 className="text-[16px] font-extrabold w-full text-center">
+              LOGOUT
+            </h2>
+            <p className="font-bold text-[15px]">
+              Apakah Anda yakin ingin logout?
+            </p>
+            <div className="flex justify-center gap-[15px] font-extrabold text-[16px]">
+              <button
+                className="p-[5px] border-[1px] border-[#D9D9D9] text-[#D9D9D9] rounded-[10px] w-full flex flex-row items-center h-fit justify-center"
+                onClick={() => setIsModalOpen(false)}
+              >
+                <img src={Cancel} alt="" />
+                Batal
+              </button>
+              <button
+                className="p-[5px] bg-[#D42828] text-white rounded-[10px] w-full flex flex-row items-center h-fit justify-center"
+                onClick={handleLogout}
+              >
+                <img src={Logout2} alt="" />
+                Keluar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
