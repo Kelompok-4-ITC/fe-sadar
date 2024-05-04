@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import TitleComponent from "../../components/TitleComponent"
 import LogoDaurUlang from "../../img/Logo Daur Ulang.png"
 import FotoContoh from "../../img/contoh-barang-1.png"
 import LogoAlamat from "../../img/icon-location.png"
 import ArrowButton from "../../assets/ArrowButton.svg";
+import { list } from "postcss"
 
 function PickUpCekPage() {
+  // Ngambil data dari halaman sebelumnya
+  const { listSampah, listBarang } = useLocation().state;
+  // console.log(listSampah);
+
+  // listSampah.map(sampah => {
+  //   console.log(sampah)
+  // })
   return (
     <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
       <div>
@@ -39,54 +47,34 @@ function PickUpCekPage() {
         {/* Kategori Sampah - List */}
         <div id="List-Sampah" className="flex flex-col gap-0">
 
-          <h1 className="font-bold text-lg text-t-black">Total Barang : 2 Barang</h1>
+          <h1 className="font-bold text-lg text-t-black">Total Barang : {listSampah.length} Barang</h1>
 
           {/* NOTE : Nanti dibikin perulangan jika buttun diklik tambah lagi */}
-          <section className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
-            <div className="flex flex-col gap-1" >
-              <div className="flex gap-2">
+          {listSampah.map((sampah) => (
+            <section key={sampah.id} className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
+              <div className="flex flex-col gap-1">
+                <div className="flex gap-2">
 
-                <img src={LogoDaurUlang} className="w-[65px] h-[65px]" />
+                  <img src={LogoDaurUlang} className="w-[65px] h-[65px]" />
 
-                <div className="w-full flex flex-col gap-1">
-                  <div className=" px-2 py-1 bg-sadar-secondary-color rounded-lg flex justify-between items-center">
-                    <h1 className="text-sadar-second-black font-bold text-[15px]">Kardus</h1>
-                    <mark className="bg-sadar-primary-color rounded-full w-7 h-7 text-center flex justify-center items-center -rotate-90" >
-                      <img src={ArrowButton} className="h-3/5" />
-                    </mark>
+                  <div className="w-full flex flex-col gap-1">
+                    <div className="px-2 py-1 bg-sadar-secondary-color rounded-lg flex justify-between items-center">
+                      <h1 className="text-sadar-second-black font-bold text-[15px]">{sampah.kategori}</h1>
+                      <mark className="bg-sadar-primary-color rounded-full w-7 h-7 text-center flex justify-center items-center -rotate-90">
+                        <img src={ArrowButton} className="h-3/5" />
+                      </mark>
+                    </div>
+
+                    <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
+                      {sampah.deksripsi}
+                    </p>
                   </div>
 
-                  <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
-                    Saya punya 5 kg kardus di rumah
-                  </p>
                 </div>
-
               </div>
-            </div>
-          </section>
+            </section>
+          ))}
 
-          <section className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
-            <div className="flex flex-col gap-1" >
-              <div className="flex gap-2">
-
-                <img src={LogoDaurUlang} className="w-[65px] h-[65px]" />
-
-                <div className="w-full flex flex-col gap-1">
-                  <div className=" px-2 py-1 bg-sadar-secondary-color rounded-lg flex justify-between items-center">
-                    <h1 className="text-sadar-second-black font-bold text-[15px]">Plastik</h1>
-                    <mark className="bg-sadar-primary-color rounded-full w-7 h-7 text-center flex justify-center items-center -rotate-90" >
-                      <img src={ArrowButton} className="h-3/5" />
-                    </mark>
-                  </div>
-
-                  <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
-                    Saya punya 1 karung botol plastik, dan plastik-plastik tidak terpakai dari bungkus makanan yang saya beli
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </section>
 
         </div>
 
