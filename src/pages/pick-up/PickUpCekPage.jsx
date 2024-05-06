@@ -4,44 +4,72 @@ import LogoDaurUlang from "../../img/Logo Daur Ulang.png"
 import FotoContoh from "../../img/contoh-barang-1.png"
 import LogoAlamat from "../../img/icon-location.png"
 import ArrowButton from "../../assets/ArrowButton.svg";
-import { list } from "postcss"
+import axios from "axios"
+import { useEffect, useState } from "react"
+
 
 function PickUpCekPage() {
+  // State untuk menyimpan data pengguna
+  const [userData, setUserData] = useState(null);
+  // Ngambil data user
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = sessionStorage.getItem('jwttoken');
+        if (token) {
+          const response = await axios({
+            method: "get",
+            url: "https://kelompok4-dot-personal-website-415207.et.r.appspot.com//user/fetch-user",
+            headers: {
+              'content-type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          // Set data pengguna ke state
+          setUserData(response.data.loggedUser);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchData(); // Panggil fungsi untuk mengambil data saat komponen dipasang
+  }, []); // Gunakan array kosong sebagai dependencies agar hanya dipanggil sekali saat komponen dipasang
+
+  console.log(userData)
+
   // Ngambil data dari halaman sebelumnya
   const { listSampah, listBarang } = useLocation().state;
-  // console.log(listSampah);
 
-  // listSampah.map(sampah => {
-  //   console.log(sampah)
-  // })
   return (
     <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
-      <div>
-        <TitleComponent path={"/pick-up"} title={"Pick Up"}></TitleComponent>
-        <div className="px-5">
-          <div className="bg-t-black h-[3px] w-full rounded"></div>
-        </div>
-      </div>
-      <div>
-        <div className="w-full px-5">
-          <div className="p-2 flex gap-1">
-            <img src={LogoAlamat} alt="logo alamat" className="w-[16px] h-[22px]" />
-            <div className="flex flex-col gap-0 px-1 w-full">
-              <h1 className="font-semibold text-t-black text-lg">Alamat Penjemputan</h1>
-              <div className="flex gap-3 font-normal text-t-black text-base">
-                <h2>Ahmad</h2>
-                <h2>082188887777</h2>
-              </div>
-              <p className="font-normal text-t-black text-bas">Jalan Babarsari, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
-            </div>
-
+      {/* Menampilkan User --- Gunakan data pengguna di sini */}
+      {userData && (
+        <div>
+          <TitleComponent path={"/pick-up"} title={"Pick Up"}></TitleComponent>
+          <div className="px-5">
+            <div className="bg-t-black h-[3px] w-full rounded"></div>
           </div>
-
+          <div>
+            <div className="w-full px-5">
+              <div className="p-2 flex gap-1">
+                <img src={LogoAlamat} alt="logo alamat" className="w-[16px] h-[22px]" />
+                <div className="flex flex-col gap-0 px-1 w-full">
+                  <h1 className="font-semibold text-t-black text-lg">Alamat Penjemputan</h1>
+                  <div className="flex gap-3 font-normal text-t-black text-base">
+                    <h2>{userData.fullName}</h2>
+                    <h2>{userData.noHP}</h2>
+                  </div>
+                  <p className="font-normal text-t-black text-bas">{userData.alamat == null ? "Alamat tidak ada " : userData.alamat}</p>
+                </div>
+              </div>
+            </div>
+            <div className="px-5">
+              <div className="bg-t-black h-[3px] w-full rounded"></div>
+            </div>
+          </div>
         </div>
-        <div className="px-5">
-          <div className="bg-t-black h-[3px] w-full rounded"></div>
-        </div>
-      </div>
+      )}
 
       <main className="px-5 flex flex-col gap-2 h-full pb-5">
         {/* Kategori Sampah - List */}

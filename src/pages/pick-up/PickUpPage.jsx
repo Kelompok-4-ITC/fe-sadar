@@ -86,7 +86,7 @@ function PickUpPage() {
   };
 
 
-  // Data sampahnya
+  // Data sampahnya --> Ngambil datanya dari sini
   const dataSampah = {
     listSampah: [
       {
@@ -94,11 +94,6 @@ function PickUpPage() {
         kategori: sampah,
         deksripsi: deskripsiSampah
       },
-      {
-        id: 2,
-        kategori: "kaleng",
-        deksripsi: "ini contoh aja"
-      }
     ],
     listBarang: [{
       namaBarang: "string",
@@ -107,7 +102,7 @@ function PickUpPage() {
     }]
   }
 
-  console.log(dataSampah)
+  // console.log(dataSampah)
 
 
   const validasi = () => {
