@@ -27,6 +27,7 @@ import PickUpPage from './pages/pick-up/PickUpPage'
 import PickUpCekPage from './pages/pick-up/PickUpCekPage';
 import PickUpSuksesPage from './pages/pick-up/PickUpSuksesPage';
 import TodoPage from './pages/pick-up/TodoPage'
+import PickupOrderForm from './pages/pick-up/PickUpOrderForm';
 
 // Fitur Drop Off
 import DropOffPage from './pages/drop-off/DropOffPage';
@@ -98,6 +99,7 @@ function App() {
         <Route path="/pick-up" element={<PickUpPage />} />
         <Route path="/pick-up/cek" element={<PickUpCekPage />} />
         <Route path="/pick-up/sukses" element={<PickUpSuksesPage />} />
+        <Route path="/PickupOrderForm" element={<PickupOrderForm />}/>
 
         {/* Fitur - Drop Off */}
         <Route path="/drop-off" element={<DropOffPage />} />
