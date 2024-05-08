@@ -3,7 +3,7 @@ import Berita1 from "../../img/Berita1.svg"
 
 export default function BeritaPage() {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 md:m-auto md:w-1/2">
       <TitleComponent title={"Berita"} path={"/"} />
       <main className="px-[20px] flex flex-col gap-3 pb-5">
         <img

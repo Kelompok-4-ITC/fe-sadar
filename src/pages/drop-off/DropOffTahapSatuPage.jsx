@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 function TahapSatuPage() {
   return (
-    <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
+    <div className="flex flex-col gap-2 h-screen bg-sadar-second-white md:m-auto md:w-1/2">
       <div>
         {/* <TitleComponent path={"/drop-off/cek"} title={"Drop Off"}></TitleComponent> */}
         <h1 className="text-xl font-semibold text-t-black text-center px-5 py-3">Drop Off</h1>
