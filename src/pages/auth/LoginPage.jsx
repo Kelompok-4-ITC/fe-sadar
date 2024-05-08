@@ -54,9 +54,9 @@ function LoginPage() {
         if (res.status == "Error") {
           toast.error(res.message);
         } else {
+          // Jika login berhasil, simpan token JWT ke sessionStorage
+          sessionStorage.setItem('jwttoken', res.data.token);
           toast.success('Berhasil Login');
-          sessionStorage.setItem('username', username);
-          sessionStorage.setItem('jwttoken', res.token);
           navigate('/')
         }
       }).catch((err) => {

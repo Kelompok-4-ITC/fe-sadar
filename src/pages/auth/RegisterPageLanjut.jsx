@@ -67,15 +67,17 @@ function RegisterPageLanjut() {
     return valid;
   }
 
-  // const inputForm = {
-  //   userName: data.userName,
-  //   email: data.email,
-  //   password: data.password,
-  //   role: RoleValue,
-  //   fullName: Nama,
-  //   tanggalLahir: TanggalLahirValue,
-  //   noHP: NomerHp
-  // }
+  const dataRegister = {
+    userName: data.userName,
+    email: data.email,
+    password: data.password,
+    role: RoleValue,
+    fullName: Nama,
+    tanggalLahir: TanggalLahirValue,
+    noHP: NomerHp
+  }
+
+  // console.log(dataRegister);
 
   // Proses registerasi
   const prosesRegisterAPI = async (e) => {
@@ -85,27 +87,20 @@ function RegisterPageLanjut() {
         method: "post",
         url: "https://kelompok4-dot-personal-website-415207.et.r.appspot.com/register",
         headers: { 'content-type': 'application/json' },
-        data: {
-          userName: data.userName,
-          email: data.email,
-          password: data.password,
-          role: RoleValue,
-          fullName: Nama,
-          tanggalLahir: TanggalLahirValue,
-          noHP: NomerHp
-        }
+        data: dataRegister
       }).then((res) => {
-        // console.log(res.data)
-        if (res.status == "Error") {
-          toast.error(res.message);
+        console.log(res.data)
+        if (res.status === 409) {
+          toast.error("Maaf, username sudah terdaftar");
+        } else if (res.data.status == "Error") {
+          toast.error(res.data.message);
         } else {
           toast.success('Berhasil Mendaftar');
-          sessionStorage.setItem('username', username);
-          sessionStorage.setItem('jwttoken', res.token);
+          sessionStorage.setItem('jwttoken', res.data.token);
           navigate('/')
         }
       }).catch((err) => {
-        toast.error(`Gagal Login Karena : ${err.message} `);
+        toast.error(`Gagal Daftar Karena : ${err.message} `);
       });
     }
   }
@@ -155,3 +150,4 @@ function RegisterPageLanjut() {
 }
 
 export default RegisterPageLanjut;
+

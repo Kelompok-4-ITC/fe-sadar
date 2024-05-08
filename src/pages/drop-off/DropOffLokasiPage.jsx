@@ -34,7 +34,6 @@ function DropOffLokasiPage() {
   const handleDitekan = (index) => {
     setDitekanIndex(index === ditekanIndex ? -1 : index);
     setSelectedLocation(data[index]);
-    console.log(selectedLocation);
   };
 
   const validasi = () => {

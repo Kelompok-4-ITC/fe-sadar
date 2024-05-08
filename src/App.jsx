@@ -47,17 +47,17 @@ function App() {
   return (
     <>
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={2500}
         hideProgressBar={false}
-        newestOnTop={false}
+        newestOnTop
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover={false}
-        theme="colored"
-        transition="Bounce"
+        theme="light"
+        transition:Zoom
       />
       <Routes>
         {/* Fitur Auth */}
@@ -88,7 +88,7 @@ function App() {
         <Route path="/profile/achievement" element={<ProfileAchivementPage />} />
         <Route path="/profile/faq" element={<ProfileFaqPage />} />
         <Route path="/profile/info" element={<ProfileInfoPage />} />
-        <Route path="/profile/setting" element={<PengaturanPage/>}/>
+        <Route path="/profile/setting" element={<PengaturanPage />} />
 
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />

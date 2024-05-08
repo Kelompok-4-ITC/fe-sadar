@@ -29,7 +29,9 @@ function DropOffCekPage() {
   ]
 
   const location = useLocation();
-  const { id } = location.state;
+  const { id, nama } = location.state;
+
+  console.log(id, nama)
 
   // Cari objek dengan id yang sesuai
   const dataDipilih = data.find(item => item.id === id);
