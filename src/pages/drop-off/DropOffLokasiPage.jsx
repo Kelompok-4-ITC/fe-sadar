@@ -65,7 +65,7 @@ function DropOffLokasiPage() {
 
 
   return (
-    <div className="flex flex-col gap-2 h-screen bg-sadar-second-white">
+    <div className="flex flex-col gap-2 h-screen bg-sadar-second-white md:m-auto md:w-1/2">
       <div>
         <TitleComponent path={"/"} title={"Drop Off"}></TitleComponent>
         <div className="px-5">

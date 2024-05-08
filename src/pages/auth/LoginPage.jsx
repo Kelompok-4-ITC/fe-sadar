@@ -72,7 +72,7 @@ function LoginPage() {
       valid = false;
       toast.warning("Isi username")
     }
-    if (password === '' || password == null) {
+    if (password === '' || password === null) {
       valid = false;
       toast.warning("Isi password")
     }
@@ -80,14 +80,12 @@ function LoginPage() {
   }
 
   return (
-    <div className="p-7 flex flex-col gap-8">
+    <div className="p-7 flex flex-col gap-8 md:w-1/2 md:m-auto">
       <div className="flex flex-col gap-4">
         <h1 className="font-semibold text-4xl pointer-events-none">Login</h1>
         <div className="text-t-black pointer-events-none text-lg font-medium">
           Login untuk mengakses akun
-          <div>
-            <span className="text-sadar-thrid-black">Sadar</span> anda
-          </div>
+            <span className="text-sadar-thrid-black"> Sadar</span> anda
         </div>
       </div>
 

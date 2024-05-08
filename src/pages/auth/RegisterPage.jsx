@@ -73,7 +73,7 @@ function RegisterPage() {
   }
 
   return (
-    <main className="p-8 flex flex-col gap-5">
+    <main className="p-8 flex flex-col gap-5 md:w-1/2 md:m-auto">
       <header className="flex flex-col gap-3">
         <BackButton path={"/login"} />
         <h1 className="font-semibold text-4xl pointer-events-none">Register</h1>
