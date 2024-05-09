@@ -1,38 +1,25 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import TitleComponent from "../../components/TitleComponent";
 import LogoDaurUlang from "../../img/Logo Daur Ulang.png";
 import LogoAlamat from "../../img/icon-location.png";
 import ArrowButton from "../../assets/ArrowButton.svg";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { toast } from 'react-toastify'
 
 function PickUpCekPage() {
-  const [userData, setUserData] = useState(null);
-  const { listSampah, listBarang } = useLocation().state;
-
+  const locationState = useLocation().state;
+  const { listSampah, listBarang, userData } = locationState || {};
+  const navigate = useNavigate();
+  // Kalo belum login suruh login dulu dan kalo userData kosong mbalik ke pick-up
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = sessionStorage.getItem("jwttoken");
-        if (token) {
-          const response = await axios({
-            method: "get",
-            url: "https://kelompok4-dot-personal-website-415207.et.r.appspot.com/user/fetch-user",
-            headers: {
-              "content-type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setUserData(response.data.loggedUser);
-        }
-      } catch (error) {
-        console.log("Terjadi kesalahan:", error.message);
-        // Tambahkan notifikasi kesalahan kepada pengguna di sini jika diperlukan
-      }
-    };
-
-    fetchData();
-  }, []);
+    if (!sessionStorage.getItem('jwttoken')) {
+      navigate("/login");
+    }
+    if (userData == undefined || userData == null || listSampah == undefined ) {
+      navigate("/pick-up");
+    }
+  }, [navigate, userData]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,9 +47,15 @@ function PickUpCekPage() {
           },
         }
       );
+      toast.success("Order berhasil dibuat:", response.data);
       console.log("Order berhasil dibuat:", response.data);
+      if (response.data.status = "success") {
+        navigate("/pick-up/sukses");
+      }
     } catch (error) {
-      console.error("Terjadi kesalahan saat membuat order:", error.message);
+      let err = error.response.data.message;
+      toast.error(`Terjadi kesalahan saat membuat order: ${err}`);
+      console.error("Terjadi kesalahan saat membuat order:", error.response.data.message);
       // Tambahkan notifikasi kesalahan kepada pengguna di sini jika diperlukan
     }
   };
@@ -121,9 +114,9 @@ function PickUpCekPage() {
                         <h1 className="text-sadar-second-black font-bold text-[15px]">
                           {sampah.kategori}
                         </h1>
-                        <mark className="bg-sadar-primary-color rounded-full w-7 h-7 text-center flex justify-center items-center -rotate-90">
+                        {/* <mark className="bg-sadar-primary-color rounded-full w-7 h-7 text-center flex justify-center items-center -rotate-90">
                           <img src={ArrowButton} className="h-3/5" />
-                        </mark>
+                        </mark> */}
                       </div>
                       <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
                         {sampah.deskripsi}
@@ -136,48 +129,55 @@ function PickUpCekPage() {
           </div>
           <div id="List-Barang" className="flex flex-col gap-0">
             <h1 className="font-bold text-lg text-t-black">List Barang Bekas</h1>
-            {listBarang.map((barang, index) => (
-              <section key={index} className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
-                <div className="flex flex-col gap-1">
-                  <div className="flex gap-2">
-                    <div className="w-[90px] ">
-                      <label htmlFor={`upload-${index}`}>
-                        <img
-                          src={barang.previewImage}
-                          className="w-full border border-sadar-secondary-color rounded-lg cursor-pointer"
-                        />
-                      </label>
-                    </div>
-                    <div className="flex flex-col gap-1 w-full">
-                      <div>
-                        <h1 className="font-semibold text-base text-sadar-second-black">
-                          Nama Barang
-                        </h1>
-                        <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
-                          {barang.namaBarang}
-                        </p>
-                      </div>
-                      <div>
-                        <h1 className="font-semibold text-base text-sadar-second-black">
-                          Harga Jual
-                        </h1>
-                        <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
-                          Rp. {barang.hargaBarang}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+            {listBarang.length == 0 ?
+              // Kalo gak ada data
+              <h1 className="font-bold text-base text-t-black">Tidak ada Barang Bekas</h1>
+              :
+              // Kalo ada data
+              listBarang.map((barang, index) => (
+                <section key={index} className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
                   <div className="flex flex-col gap-1">
-                    <h1 className="font-semibold text-base text-sadar-second-black">
-                      Deskripsi Barang
-                    </h1>
-                    <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
-                      {barang.deskripsi}
-                    </p>
+                    <div className="flex gap-2">
+                      <div className="w-[90px] ">
+                        <label htmlFor={`upload-${index}`}>
+                          <img
+                            src={barang.previewImage}
+                            className="w-full border border-sadar-secondary-color rounded-lg cursor-pointer"
+                          />
+                        </label>
+                      </div>
+                      <div className="flex flex-col gap-1 w-full">
+                        <div>
+                          <h1 className="font-semibold text-base text-sadar-second-black">
+                            Nama Barang
+                          </h1>
+                          <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
+                            {barang.namaBarang}
+                          </p>
+                        </div>
+                        <div>
+                          <h1 className="font-semibold text-base text-sadar-second-black">
+                            Harga Jual
+                          </h1>
+                          <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
+                            Rp. {barang.hargaBarang}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <h1 className="font-semibold text-base text-sadar-second-black">
+                        Deskripsi Barang
+                      </h1>
+                      <p className="w-full p-2 rounded-lg border border-sadar-secondary-color focus:outline-none focus:border-sadar-secondary-color font-semibold text-xs ">
+                        {barang.deskripsi}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </section>
-            ))}
+                </section>
+              ))
+
+            }
           </div>
           <button
             className="px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"

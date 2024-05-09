@@ -1,23 +1,57 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import LogoDaurUlang from "../../img/Logo Daur Ulang.png";
 import ArrowButton from "../../assets/ArrowButton.svg";
 import UploadFoto from "../../img/Input Logo.png"
 import TitleComponent from "../../components/TitleComponent";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 function PickupOrderForm() {
-  const [listSampah, setListSampah] = useState([
-    { kategori: "", deskripsi: "" },
+  // Ini fetch User disini nanti tinggal ngirim ke cek, biar gak lama
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = sessionStorage.getItem("jwttoken");
+        if (token) {
+          const response = await axios({
+            method: "get",
+            url: "https://kelompok4-dot-personal-website-415207.et.r.appspot.com/user/fetch-user",
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUserData(response.data.loggedUser);
+        }
+      } catch (error) {
+        console.log("Terjadi kesalahan:", error.message);
+        // Tambahkan notifikasi kesalahan kepada pengguna di sini jika diperlukan
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // --- Bagian list sampah ---
+  const [listSampah, setListSampah] = useState([ 
+    // Note dari Wijdan : kalo semisal dibat kosong dulu gimana
+    // { kategori: "", deskripsi: "" },
   ]);
   const [listBarang, setListBarang] = useState([
-    { namaBarang: "", deskripsi: "", hargaBarang: 0, previewImage: null },
+    // Note dari Wijdan : kalo semisal dibat kosong dulu gimana
+    // { namaBarang: "", deskripsi: "", hargaBarang: 0, previewImage: null },
   ]);
   const [open, setOpen] = useState(false);
   const [previewSource, setPreviewSource] = useState(UploadFoto);
+
   const [toggleStates, setToggleStates] = useState(
     Array(listSampah.length).fill(false)
   );
+
+  console.log(toggleStates);
+  
 
   const toggleOpen = (index) => {
     const newToggleStates = [...toggleStates];
@@ -53,7 +87,7 @@ function PickupOrderForm() {
     const newList = [...listSampah];
     newList[index][name] = value;
     setListSampah(newList);
-    
+
     // Tutup toggle ketika kategori dipilih
     const newToggleStates = [...toggleStates];
     newToggleStates[index] = true;
@@ -82,27 +116,30 @@ function PickupOrderForm() {
     };
   };
 
-  const dataSampah = {
-    listSampah: listSampah,
-    listBarang: listBarang,
-  };
-  console.log(dataSampah);
-
   const validasi = () => {
     let valid = true;
-    if (listSampah == '') {
+    if (listSampah.every(sampah => Object.values(sampah).some(val => val === ''))) {
       valid = false;
       toast.warning("Input data sampahnya dulu");
     }
     return valid;
   }
-  
+
+  const dataUmpan = {
+    listSampah: listSampah,
+    listBarang: listBarang,
+    fotoSampah: previewSource,
+    userData: userData
+  };
+
+  console.log(dataUmpan);
+
   const navigate = useNavigate();
   const keHalamanCek = (e) => {
     e.preventDefault();
     if (validasi()) {
       navigate('/pick-up/cek', {
-        state: dataSampah
+        state: dataUmpan
       })
     }
   }
@@ -141,9 +178,8 @@ function PickupOrderForm() {
                             : "Pilih Kategori Sampah"}
                         </h1>
                         <button
-                          className={`bg-sadar-primary-color rounded-full hover:bg-sadar-fourth-black w-7 h-7 text-center flex justify-center items-center ${
-                            toggleStates[index] ? "rotate-90" : "-rotate-90"
-                          }`}
+                          className={`bg-sadar-primary-color rounded-full hover:bg-sadar-fourth-black w-7 h-7 text-center flex justify-center items-center ${toggleStates[index] ? "rotate-90" : "-rotate-90"
+                            }`}
                           onClick={() => toggleOpen(index)}
                         >
                           <img src={ArrowButton} className="h-3/5" />
@@ -151,9 +187,8 @@ function PickupOrderForm() {
                       </div>
 
                       <div
-                        className={`p-2 flex flex-col gap-1 rounded-lg bg-sadar-secondary-color ${
-                          toggleStates[index] ? "hidden" : "block"
-                        }`}
+                        className={`p-2 flex flex-col gap-1 rounded-lg bg-sadar-secondary-color ${toggleStates[index] ? "hidden" : "block"
+                          }`}
                       >
                         <h1 className="font-semibold text-xs text-sadar-second-black">
                           Kategori Sampah
@@ -236,7 +271,7 @@ function PickupOrderForm() {
                             />
                           ) : (
                             <div className="w-full border border-sadar-secondary-color rounded-lg cursor-pointer flex justify-center items-center">
-                              <img src={previewSource}/>
+                              <img src={previewSource} />
                             </div>
                           )}
                         </label>
@@ -314,7 +349,7 @@ function PickupOrderForm() {
           </button>
 
           <button className="px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"
-          onClick={(e) => keHalamanCek(e)} type="submit">Lanjut</button>
+            onClick={(e) => keHalamanCek(e)} type="submit">Lanjut</button>
         </form>
       </main>
     </div>

@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import TitleComponent from "../../components/TitleComponent"
 import LogoAlamat from "../../img/icon-location.png"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { toast } from 'react-toastify'
 
 function DropOffLokasiPage() {
@@ -45,8 +45,17 @@ function DropOffLokasiPage() {
     return valid;
   }
 
+  // Kalo belum login suruh login dulu 
+  useEffect(() => {
+    if (!sessionStorage.getItem('jwttoken')) {
+      navigate("/login");
+    }
+  }, []);
 
+  const locationState = useLocation().state;
+  const { listSampah, listBarang, userData } = locationState || {};
   const navigate = useNavigate();
+
   function keCekPage(e) {
     e.preventDefault()
     if (validasi()) {
@@ -57,7 +66,11 @@ function DropOffLokasiPage() {
         state: {
           id: selectedLocation.id,
           nama: selectedLocation.nama,
-          jalanLengkap: selectedLocation.jalanLengkap
+          jalanLengkap: selectedLocation.jalanLengkap,
+          listSampah: listSampah,
+          listBarang: listBarang,
+          // fotoSampah: previewSource,
+          // userData: userData
         }
       });
     }
@@ -67,7 +80,7 @@ function DropOffLokasiPage() {
   return (
     <div className="flex flex-col gap-2 h-screen bg-sadar-second-white md:m-auto md:w-1/2">
       <div>
-        <TitleComponent path={"/"} title={"Drop Off"}></TitleComponent>
+        <TitleComponent path={"/drop-off"} title={"Drop Off"}></TitleComponent>
         <div className="px-5">
           <div className="bg-t-black h-[3px] w-full rounded"></div>
         </div>
