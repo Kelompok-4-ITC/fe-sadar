@@ -126,7 +126,7 @@ function PickupOrderForm() {
             </h2>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3">
           {listSampah.map((sampah, index) => (
             <div key={index}>
               <section className="p-2 bg-t-white rounded-lg drop-shadow-lg ">
