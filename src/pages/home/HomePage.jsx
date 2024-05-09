@@ -8,9 +8,17 @@ import DropOff from "../../img/Icon-Drop-Off.png";
 import Shop from "../../img/Icon-Shop.png";
 import Berita1 from "../../img/Berita1.svg";
 import Navbar from "../../components/Navbar";
+import { useEffect } from "react";
 
 
 function HomePage() {
+  // Kalo belum login suruh login dulu
+  useEffect(() => {
+    if (!sessionStorage.getItem('jwttoken')) {
+      navigate("/login")
+    }
+  }, [])
+
   // Sekarang Halaman Home
   const valueNavbar = 'home';
 
