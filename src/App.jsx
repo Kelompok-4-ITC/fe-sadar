@@ -40,6 +40,8 @@ import ChatingPage from './pages/chat/ChatingPage';
 // Fitur Shop
 import ShopPage from './pages/shop/ShopPage';
 import ShopDetailPage from './pages/shop/ShopDetailPage';
+import ShopDetailPembelian from './pages/shop/ShopDetailPembelian';
+
 
 function App() {
   return (
@@ -91,6 +93,7 @@ function App() {
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/detail" element={<ShopDetailPage />} />
+        <Route path="/shop/detail/pembelian" element={<ShopDetailPembelian />} />
 
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickupOrderForm />} />
