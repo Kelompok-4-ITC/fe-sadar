@@ -1,5 +1,3 @@
-import { Link, useNavigate } from "react-router-dom";
-
 import Logo from "../../assets/LogoSadar.svg";
 import Notification from "../../assets/Notification.svg";
 import Photo from "../../assets/corosek.png";
@@ -8,9 +6,18 @@ import DropOff from "../../img/Icon-Drop-Off.png";
 import Shop from "../../img/Icon-Shop.png";
 import Berita1 from "../../img/Berita1.svg";
 import Navbar from "../../components/Navbar";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function HomePage() {
+  // Kalo belum login suruh login dulu
+  useEffect(() => {
+    if (!sessionStorage.getItem('jwttoken')) {
+      navigate("/login")
+    }
+  }, [])
+
   // Sekarang Halaman Home
   const valueNavbar = 'home';
 
@@ -120,7 +127,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
+            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]" onClick={keBerita}>
               <div className="flex flex-row w-[330px] h-[99px] items-center space-x-[10px]">
                 <img
                   src={Berita1}
@@ -138,7 +145,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]">
+            <div className="p-[10px] border-0 rounded-[10px] shadow-[0px_4px_4px_0px_#00000025]" onClick={keBerita}>
               <div className="flex flex-row w-[330px] h-[99px] items-center space-x-[10px]">
                 <img
                   src={Berita1}

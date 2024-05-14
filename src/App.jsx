@@ -23,18 +23,15 @@ import RegisterPageLanjut from './pages/auth/RegisterPageLanjut'
 import NotifikasiPage from './pages/home/NotifikasiPage'
 
 // Fitur Pick Up
-import PickUpPage from './pages/pick-up/PickUpPage'
+import PickupOrderForm from './pages/pick-up/PickUpOrderForm';
 import PickUpCekPage from './pages/pick-up/PickUpCekPage';
 import PickUpSuksesPage from './pages/pick-up/PickUpSuksesPage';
-import TodoPage from './pages/pick-up/TodoPage'
-import PickupOrderForm from './pages/pick-up/PickUpOrderForm';
 
 // Fitur Drop Off
 import DropOffPage from './pages/drop-off/DropOffPage';
 import DropOffLokasiPage from './pages/drop-off/DropOffLokasiPage'
 import DropOffCekPage from './pages/drop-off/DropOffCekPage'
 import DropOffTahapSatuPage from './pages/drop-off/DropOffTahapSatuPage';
-import TodoList from './pages/pick-up/ToDoList';
 
 // Fitur Chat
 import ChatPage from './pages/chat/ChatPage';
@@ -43,6 +40,8 @@ import ChatingPage from './pages/chat/ChatingPage';
 // Fitur Shop
 import ShopPage from './pages/shop/ShopPage';
 import ShopDetailPage from './pages/shop/ShopDetailPage';
+import ShopDetailPembelian from './pages/shop/ShopDetailPembelian';
+
 
 function App() {
   return (
@@ -94,12 +93,12 @@ function App() {
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/detail" element={<ShopDetailPage />} />
+        <Route path="/shop/detail/pembelian" element={<ShopDetailPembelian />} />
 
         {/* Fitur - Pick Up */}
-        <Route path="/pick-up" element={<PickUpPage />} />
+        <Route path="/pick-up" element={<PickupOrderForm />} />
         <Route path="/pick-up/cek" element={<PickUpCekPage />} />
         <Route path="/pick-up/sukses" element={<PickUpSuksesPage />} />
-        <Route path="/PickupOrderForm" element={<PickupOrderForm />}/>
 
         {/* Fitur - Drop Off */}
         <Route path="/drop-off" element={<DropOffPage />} />
@@ -108,8 +107,6 @@ function App() {
         <Route path="/drop-off/tahap-satu" element={<DropOffTahapSatuPage />} />
 
         {/* Error Page */}
-        <Route path="/test" element={<TodoPage />} />
-        <Route path="/test/test" element={<TodoList />} />
         <Route path="/*" element={<ErrorPage />} />
 
       </Routes>

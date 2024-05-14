@@ -16,6 +16,10 @@ function ShopDetailPage() {
     navigate('/chat')
   }
 
+  function kePembelian() {
+    navigate('/shop/detail/pembelian')
+  }
+
   return (
     <>
       <div className='flex flex-col gap-[10px] bg-sadar-second-white'>
@@ -40,7 +44,7 @@ function ShopDetailPage() {
                 </div>
                 <div id='buy' className='bg-[#FF3D00] p-1  w-fit cursor-pointer'>
                   <img src={IconBuy} alt="icon buy" />
-                  <h1 className='text-center font-semibold text-[10px] text-t-white'>Beli Sekarang</h1>
+                  <h1 className='text-center font-semibold text-[10px] text-t-white' onClick={kePembelian}>Beli Sekarang</h1>
                 </div>
               </div>
             </div>
