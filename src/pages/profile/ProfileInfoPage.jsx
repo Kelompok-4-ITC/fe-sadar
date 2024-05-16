@@ -52,7 +52,6 @@ function ProfileInfoPage() {
             role: result.loggedUser.role.namaRole,
           };
           setData(userData);
-          sessionStorage.setItem("userData", JSON.stringify(userData));
         } else {
           console.error("Failed to fetch user data");
         }
@@ -97,6 +96,7 @@ function ProfileInfoPage() {
         data.tanggalLahir.split("-")[0],
       ]
     : ["", "", ""];
+    
 
   const keEditInfo = (e) => {
     e.preventDefault();
@@ -106,9 +106,9 @@ function ProfileInfoPage() {
   };
   return (
     <>
-      <div className="flex flex-col gap-[16px] py-[10px] bg-sadar-second-white md:mx-auto md:w-1/2">
+      <div className="flex flex-col gap-[16px] py-[10px] px-[10px] bg-sadar-second-white md:mx-auto md:w-1/2">
         {/* Bagian Atas */}
-        <section className="flex py-[10px] gap-5 justify-between">
+        <section className="flex gap-5 justify-between">
           <BackButton path={"/profile"} />
           <div className="flex justify-center items-center bg-sadar-third-white border border-sadar-second-black rounded-[5px] p-[5px] w-full">
             <h1 className="font-semibold text-t-black text-base">
@@ -120,7 +120,7 @@ function ProfileInfoPage() {
         {/* Bagian Info */}
         <main className="flex flex-col gap-[22px] py-5 px-[13px]">
           {/* Nama */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Nama</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconProfile} alt="icon profile" className="w-6 h-6" />
@@ -129,7 +129,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Username */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Username</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconProfile} alt="icon profile" className="w-6 h-6" />
@@ -140,7 +140,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Role */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Role</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconProfile} alt="icon profile" className="w-6 h-6" />
@@ -149,7 +149,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Email */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Alamat Email</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconEmail} alt="icon email" className="w-6 h-6" />
@@ -158,7 +158,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Nomer Telpon */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Nomor Telepon</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconPhone} alt="icon phone" className="w-6 h-6" />
@@ -169,7 +169,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Alamat Lengkap */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Alamat Lengkap</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconAlamat} alt="icon alamat" className="w-6 h-6" />
@@ -180,7 +180,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Jenis Kelamin */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Jenis Kelamin</h1>
             <div className="flex w-full border-b-2 border-t-black gap-[16px] pb-[10px]">
               <img src={IconMale} alt="icon male" className="w-6 h-6" />
@@ -191,7 +191,7 @@ function ProfileInfoPage() {
           </div>
 
           {/* Tanggal Lahir */}
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[5px]">
             <h1 className="text-sm font-normal text-t-black">Tanggal Lahir</h1>
             <div className="flex w-full justify-between">
               <h1 className="text-sm font-medium text-t-black px-8 border-b-2 border-t-black pb-[10px]">
@@ -207,7 +207,7 @@ function ProfileInfoPage() {
           </div>
         </main>
         <button
-          className="w-full mx-[10px] px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"
+          className="w-full px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"
           onClick={keEditInfo}
           type="button"
         >
