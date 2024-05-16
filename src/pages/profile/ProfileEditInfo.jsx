@@ -89,7 +89,6 @@ const ProfileEditInfo = () => {
           jenisKelamin: userData.jenisKelamin,
           tanggalLahir: userData.tanggalLahir,
         };
-        sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
         toast.success("Info profile berhasil diupdate");
         navigate("/profile/info");
       }
@@ -169,7 +168,6 @@ const ProfileEditInfo = () => {
               <option value="">Pilih Jenis Kelamin</option>
               <option value="Pria">Pria</option>
               <option value="Perempuan">Perempuan</option>
-              <option value="Other">Other</option>
             </select>
           </div>
         </div>
@@ -188,7 +186,7 @@ const ProfileEditInfo = () => {
         </div>
         <button
           type="submit"
-          className="w-full mx-[10px] px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"
+          className="w-full px-3 py-2 bg-sadar-primary-color hover:bg-sadar-fourth-black rounded-lg font-semibold text-lg text-t-white text-center"
         >
           Save Changes
         </button>
