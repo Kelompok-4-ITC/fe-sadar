@@ -14,6 +14,7 @@ import ProfileAchivementPage from './pages/profile/ProfileAchivementPage';
 import ProfileFaqPage from './pages/profile/ProfileFaqPage';
 import ProfileInfoPage from './pages/profile/ProfileInfoPage';
 import PengaturanPage from './pages/profile/PengaturanPage';
+import ProfileEditInfo from './pages/profile/ProfileEditInfo';
 
 //Fitur Proses
 import ProsesPage from './pages/proses/ProsesPage'
@@ -89,6 +90,8 @@ function App() {
         <Route path="/profile/faq" element={<ProfileFaqPage />} />
         <Route path="/profile/info" element={<ProfileInfoPage />} />
         <Route path="/profile/setting" element={<PengaturanPage />} />
+        <Route path="/profile/info/edit" element={<ProfileEditInfo />} />
+
 
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />

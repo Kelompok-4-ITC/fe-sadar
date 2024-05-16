@@ -47,10 +47,10 @@ function ProfilePage() {
   }
 
   function handleLogout() {
-    // Tambahkan logika logout disini
-    console.log("Proses logout...");
-    // Setelah logout, tutup modal
-    setIsModalOpen(false);
+    // Hapus token autentikasi yang disimpan
+    sessionStorage.removeItem("jwttoken");
+    // Setelah logout, navigasikan pengguna kembali ke halaman login
+    navigate("/login");
   }
 
   return (
