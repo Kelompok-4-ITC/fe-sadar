@@ -1,15 +1,38 @@
 import BackButton from '../../components/BackButton'
 import Navbar from "../../components/Navbar";
+import { useNavigate } from "react-router-dom"
 
 import LabelReuse from "../../img/shop-label-reuse.png"
 import FotoBarang from "../../img/shop-foto-product.png"
+import IconBill from "../../img/shop-bill.png"
+import IconAlamat from "../../img/shop-alamat.png"
+import ArrowKanan from "../../img/shop-arrow-kanan.png"
 
 function ShopDetailPembelianPage() {
   // Sekarang Halaman Home
   const valueNavbar = 'home';
 
+  // untuk navigate
+  const navigate = useNavigate();
+
+  // ke Pilih Alamat
+  function kePilihAlamat() {
+    navigate('/shop/pilih-alamat')
+  }
+
+  // ke voucer
+  function kePilihVoucer() {
+    navigate('/shop/pilih-voucer')
+  }
+
+  // ke pembayaran
+  function kePilihPembayaran() {
+    navigate('/shop/pilih-pembayaran')
+  }
+
+
   return (
-    <div className='flex flex-col bg-sadar-second-white h-screen'>
+    <div className='flex flex-col bg-sadar-second-white mb-10'>
       {/* Bagian Atas */}
       <section className='flex px-5 py-[10px] gap-5'>
         <BackButton path={"/shop"} />
@@ -20,15 +43,15 @@ function ShopDetailPembelianPage() {
 
       {/* Alamat Pengiriman */}
       <section className='px-5 py-[10px] border-b-black border'>
-        <div className='flex'>
+        <div className='flex justify-between items-center'>
           <h1 className='font-semibold text-t-black text-base'>Alamat Pengiriman</h1>
-          <img src="" alt="" />
+          <img src={IconAlamat} />
         </div>
         <p className='text-sm font-normal'>Kim Tae Alexander | 0800-7890-9000</p>
-        <p className='text-sm font-normal'>Jalan Dirgantara III No.77, Caturtunggal, Depok, Sleman I Yogyakarta, ID 55282</p>
-        <div className='flex border border-sadar-primary-color rounded-[10px] p-[10px] items-center justify-beetween'>
+        <p className='text-sm font-normal mb-2'>Jalan Dirgantara III No.77, Caturtunggal, Depok, Sleman I Yogyakarta, ID 55282</p>
+        <div className='flex border border-sadar-primary-color rounded-[10px] p-[10px] items-center justify-between cursor-pointer' onClick={kePilihAlamat}>
           <h1>Ganti Alamar</h1>
-          <img src="" alt="" />
+          <img src={ArrowKanan} alt="" />
         </div>
       </section>
 
@@ -43,17 +66,17 @@ function ShopDetailPembelianPage() {
             <p className='font-normal text-black text-[10px]'>Sofa bekas bahan kapas dimensi 40 x 50 m warna biru</p>
           </div>
         </div>
-        <div className='flex border border-[#202020]  rounded-[10px] p-[10px] items-center justify-beetween'>
+        <div className='flex border border-[#202020]  rounded-[10px] p-[10px] items-center justify-between cursor-pointer' onClick={kePilihVoucer}>
           <h1>Pilih Voucer</h1>
-          <img src="" alt="" />
+          <img src={ArrowKanan} alt="" />
         </div>
       </section>
 
       {/* Rician Pembayaran */}
       <section className='px-5 py-[10px] border-sadar-thrid-black border'>
-        <div className='flex mb-2'>
+        <div className='flex mb-2 justify-between items-center'>
           <h1 className='font-semibold text-t-black text-base'>Rincian Pembayaran</h1>
-          <img src="" alt="" />
+          <img src={IconBill} alt="" />
         </div>
 
         <div className='mb-2'>
@@ -79,9 +102,9 @@ function ShopDetailPembelianPage() {
           </div>
         </div>
 
-        <div className='flex border border-[#202020]  rounded-[10px] p-[10px] items-center justify-beetween'>
+        <div className='flex border border-[#202020]  rounded-[10px] p-[10px] items-center justify-between cursor-pointer' onClick={kePilihPembayaran}>
           <h1>Pilih Metode Pemnbayaran</h1>
-          <img src="" alt="" />
+          <img src={ArrowKanan} alt="" />
         </div>
       </section>
 

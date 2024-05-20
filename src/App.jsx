@@ -41,6 +41,9 @@ import ChatingPage from './pages/chat/ChatingPage';
 import ShopPage from './pages/shop/ShopPage';
 import ShopDetailProdukPage from './pages/shop/ShopDetailProdukPage';
 import ShopDetailPembelianPage from './pages/shop/ShopDetailPembelianPage';
+import ShopPilihAlamatPage from './pages/shop/ShopPilihAlamatPage';
+import ShopPilihVoucerPage from './pages/shop/ShopPilihVoucerPage';
+import ShopPilihPembayaranPage from './pages/shop/ShopPilihPembayaranPage';
 
 function App() {
   return (
@@ -93,6 +96,9 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/detail-produk" element={<ShopDetailProdukPage />} />
         <Route path="/shop/detail-pembelian" element={<ShopDetailPembelianPage />} />
+        <Route path="/shop/pilih-alamat" element={<ShopPilihAlamatPage />} />
+        <Route path="/shop/pilih-voucer" element={<ShopPilihVoucerPage />} />
+        <Route path="/shop/pilih-pembayaran" element={<ShopPilihPembayaranPage />} />
 
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickupOrderForm />} />
