@@ -8,35 +8,22 @@ import Forward from "../../assets/Forward.svg";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
-function ShopDetailPembelianPage() {
+function ShopDetailPage() {
   // Sekarang Halaman Home
-  const valueNavbar = 'home';
+  const valueNavbar = "home";
 
   // untuk navigate
   const navigate = useNavigate();
-
-  // ke Pilih Alamat
-  function kePilihAlamat() {
-    navigate('/shop/pilih-alamat')
+  function keChat() {
+    navigate("/chat");
   }
-
-  // ke voucer
-  function kePilihVoucer() {
-    navigate('/shop/pilih-voucer')
-  }
-
-  // ke pembayaran
-  function kePilihPembayaran() {
-    navigate('/shop/pilih-pembayaran')
-  }
-
 
   return (
     <>
       <div className="flex flex-col gap-[10px] bg-sadar-second-white pb-[70px]">
         {/* Bagian Atas */}
         <section className="flex px-5 py-[10px] gap-5">
-          <BackButton path={"/shop/detail-produk"} />
+          <BackButton path={"/shop/detail"} />
           <div className="flex justify-center items-center bg-sadar-third-white border border-sadar-second-black rounded-[5px] p-[5px] w-full">
             <h1 className="font-semibold text-t-black text-base">
               Detail Pembelian
@@ -60,7 +47,7 @@ function ShopDetailPembelianPage() {
                 Yogyakarta, ID 55282
               </div>
             </div>
-            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center" onClick={kePilihAlamat}>
+            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center">
               <div>Ganti Alamat</div>
               <div>
                 <img src={Forward} alt="" />
@@ -84,7 +71,7 @@ function ShopDetailPembelianPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center" onClick={kePilihVoucer}>
+            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center">
               <div>Pilih Voucher</div>
               <div>
                 <img src={Forward} alt="" />
@@ -120,7 +107,7 @@ function ShopDetailPembelianPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center" onClick={kePilihPembayaran}>
+            <div className="bg-[#F9F7F7] p-[10px] border-[1px] border-sadar-primary-color rounded-[10px] flex flex-row justify-between items-center">
               <div>Pilih Metode Pembayaran</div>
               <div>
                 <img src={Forward} alt="" />
@@ -138,4 +125,4 @@ function ShopDetailPembelianPage() {
   );
 }
 
-export default ShopDetailPembelianPage
+export default ShopDetailPage;

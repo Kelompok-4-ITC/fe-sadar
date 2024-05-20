@@ -18,10 +18,8 @@ function ShopDetailProdukPage() {
     navigate('/chat')
   }
 
-  // ke Chat Detail Pembelian
   function keDetailPembelian() {
-    navigate('/chat')
-
+    navigate('/shop/detail-pembelian')
   }
 
   return (
