@@ -159,7 +159,7 @@ function ProfilePage() {
           </div>
 
           <div
-            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer"
+            className="group hover:border-[3px] hover:border-sadar-fourth-black border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer mb-16"
             onClick={() => setIsModalOpen(true)}
           >
             <img src={Logout} alt="" />

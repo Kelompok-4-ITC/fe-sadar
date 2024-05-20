@@ -6,18 +6,20 @@ import IconBuy from '../../img/shop-icon-buy.png'
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
-function ShopDetailPage() {
+function ShopDetailProdukPage() {
   // Sekarang Halaman Home
   const valueNavbar = 'home';
 
   // untuk navigate
   const navigate = useNavigate();
+
+  // ke Chat Page
   function keChat() {
     navigate('/chat')
   }
 
-  function kePembelian() {
-    navigate('/shop/detail/pembelian')
+  function keDetailPembelian() {
+    navigate('/shop/detail-pembelian')
   }
 
   return (
@@ -42,9 +44,9 @@ function ShopDetailPage() {
                   <img src={IconChat} alt="icon chat" />
                   <h1 className='text-center font-semibold text-[10px] text-t-grey'>Chat Penjual</h1>
                 </div>
-                <div id='buy' className='bg-[#FF3D00] p-1  w-fit cursor-pointer'>
+                <div id='buy' className='bg-[#FF3D00] p-1  w-fit cursor-pointer' onClick={keDetailPembelian}>
                   <img src={IconBuy} alt="icon buy" />
-                  <h1 className='text-center font-semibold text-[10px] text-t-white' onClick={kePembelian}>Beli Sekarang</h1>
+                  <h1 className='text-center font-semibold text-[10px] text-t-white'>Beli Sekarang</h1>
                 </div>
               </div>
             </div>
@@ -52,7 +54,7 @@ function ShopDetailPage() {
           {/* Bagian Data Product */}
           <div className='flex flex-col gap-[5px]'>
             <div id='heading'>
-              <h1 className='font-bold text-t-black text-lg'>Nama Product</h1>
+              {/* <h1 className='font-bold text-t-black text-lg'>Nama Product</h1> */}
               <h1 className='font-semibold text-[#D05C37] text-sm'>Rp 115.000</h1>
               <p className='font-medium text-t-black text-sm'>Sofa bekas bahan kapas dimensi 40 x 50 cm warna biru merk gucci kw</p>
             </div>
@@ -88,4 +90,4 @@ function ShopDetailPage() {
   )
 }
 
-export default ShopDetailPage 
+export default ShopDetailProdukPage 
