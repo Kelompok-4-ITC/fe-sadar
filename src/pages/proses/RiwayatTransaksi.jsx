@@ -20,7 +20,7 @@ function RiwayatTransaksi() {
     <div className="flex flex-col space-y-[15px]">
       <div className="py-[10px] mx-[20px] border-0 border-b-2 border-black ">
         <div className="flex flex-row items-center justify-between">
-          <BackButton path={"/proses"} />
+          <BackButton path={"/profile"} />
           <div className="font-semibold text-[24px]">Riwayat Transaksi</div>
           <div className="w-[28px] h-[28px]"></div>
         </div>

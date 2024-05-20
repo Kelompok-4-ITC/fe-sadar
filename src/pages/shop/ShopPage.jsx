@@ -6,6 +6,7 @@ import FilterIcon from '../../img/shop-filter-icon.png'
 import FotoProduct from '../../img/shop-foto-product.png'
 import LabelReuse from '../../img/shop-label-reuse.png'
 import LabelRecycle from '../../img/shop-label-recycle.png'
+import Poin from '../../img/shop-coin.png'
 import { useNavigate } from 'react-router-dom'
 import Navbar from "../../components/Navbar";
 
@@ -44,7 +45,7 @@ function ShopPage() {
 
   const navigate = useNavigate()
   const keDetail = () => {
-    navigate('/shop/detail')
+    navigate('/shop/detail-pembelian')
   }
 
   return (
@@ -68,13 +69,23 @@ function ShopPage() {
         <section className='w-full relative px-[10px]'>
           <input
             type="text"
-            placeholder='Cari'
-            className='px-[10px] border-2 border-[#202020] rounded-[10px] h-[40px] bg-t-white w-full pe-10'
+            placeholder='Cari Produk'
+            className='px-[10px] border border-[#202020] rounded-[10px] h-[40px] bg-t-white w-full pe-10'
             id='sarch'
           />
           <label htmlFor="search" className='absolute inset-y-0 end-4 flex items-center ps-4 cursor-pointer'>
             <img src={SearchIcon} alt="search" className="flex-shrink-0 w-auto" />
           </label>
+        </section>
+        {/* Bagian poin */}
+        <section className='px-[10px]'>
+          <div className='px-[10px] border border-[#202020] rounded-[10px] py-[5px] flex items-center w-6/12 gap-2 justify-between'>
+            <h1 className='border border-dashed border-e-black px-2 font-semibold text-sm'>poin anda</h1>
+            <div className='flex items-center'>
+              <p className='mr-1'>1000</p>
+              <img src={Poin} alt="Logo Dolar" className='h-6' />
+            </div>
+          </div>
         </section>
         {/* Heading Judul */}
         <section className='px-4 flex justify-between items-center'>
@@ -101,7 +112,7 @@ function ShopPage() {
                 }
               </div>
               <div className='flex flex-col gap-0'>
-                <h1 className='font-bold text-t-black text-[13px]'>{product.nama}</h1>
+                {/* <h1 className='font-bold text-t-black text-[13px]'>{product.nama}</h1> */}
                 <h2 className='font-bold text-[#D05C37] text-[10px]'>Rp {product.harga}</h2>
                 <p className='font-medium text-t-black text-[10px] overflow-hidden text-ellipsis line-clamp-2 leading-snug'>
                   {product.deskripsi}

@@ -39,7 +39,8 @@ import ChatingPage from './pages/chat/ChatingPage';
 
 // Fitur Shop
 import ShopPage from './pages/shop/ShopPage';
-import ShopDetailPage from './pages/shop/ShopDetailPage';
+import ShopDetailProdukPage from './pages/shop/ShopDetailProdukPage';
+import ShopDetailPembelianPage from './pages/shop/ShopDetailPembelianPage';
 
 function App() {
   return (
@@ -90,7 +91,8 @@ function App() {
 
         {/* Halaman Shop */}
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/shop/detail" element={<ShopDetailPage />} />
+        <Route path="/shop/detail-produk" element={<ShopDetailProdukPage />} />
+        <Route path="/shop/detail-pembelian" element={<ShopDetailPembelianPage />} />
 
         {/* Fitur - Pick Up */}
         <Route path="/pick-up" element={<PickupOrderForm />} />
