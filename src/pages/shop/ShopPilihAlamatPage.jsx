@@ -48,7 +48,7 @@ function ShopPilihAlamatPage() {
       {/* Bagian main */}
       <section className="bg-t-white border border-y-t-grey px-5 py-[10px] flex flex-col gap-[10px]">
         <h1 className="font-semibold text-t-black text-base">Alamat Tersimpan</h1>
-        <div className="border border-[#A2A2A7]"></div>
+        <div className="border-b border-[#A2A2A7]"></div>
         {data.map((item, index) => (
           <div key={index}>
             <div className="flex items-center">
@@ -58,12 +58,12 @@ function ShopPilihAlamatPage() {
               </div>
               <img src={item.isSelected ? IconCentang : ""} alt="" className="h-10" />
             </div>
-            <div className="border border-[#A2A2A7] mt-1"></div>
+            <div className="border-b border-[#A2A2A7] mt-1"></div>
           </div>
         ))}
 
         {/* Tambah alamat */}
-        <section className="flex items-center">
+        <section className="flex items-center gap-3">
           <img src={IconTambah} alt="" />
           <h1>Tambah Alamat Baru</h1>
         </section>
