@@ -55,15 +55,15 @@ function ProfilePage() {
 
   return (
     <div>
-      <div className="h-screen relative py-[24px] mb-[110px]">
-        <div className="fixed top-0 px-5 py-2.5 w-full">
-          <div className="flex items-center justify-center font-medium w-full text-center">
+      <div className="h-screen relative py-[24px] mb-[110px] md:w-1/2 md:m-auto">
+        <div className="md:relative fixed top-0 px-5 py-2.5 w-full md:w-1/2 md:m-auto">
+          <div className="flex items-center justify-center font-medium w-full text-center md:w-1/2 md:m-auto">
             <span className="text-[20px]">Profile</span>
           </div>
         </div>
 
-        <div className="fixed mt-[24px] pb-[24px] bg-white">
-          <div className="flex flex-col mt-[26px] items-center justify-center w-screen gap-[24px]">
+        <div className="md:relative fixed mt-[24px] md:pb-0 pb-[24px] bg-white ">
+          <div className="flex flex-col mt-[26px] items-center justify-center w-screen gap-[24px] md:w-[630px]">
             <div>
               <img src={Header} alt="" className="" />
               <div className="relative bottom-[60px] -mb-[60px] w-full flex justify-center">
@@ -87,7 +87,7 @@ function ProfilePage() {
           </div>
         </div>
 
-        <div className="mt-[410px] px-[10px] flex flex-col gap-[15px] py-[10px] font-medium text-[16px]">
+        <div className="mt-[410px] px-[10px] flex flex-col gap-[15px] py-[10px] font-medium text-[16px] md:mt-0">
           <div
             className="group border border-black p-[10px] flex flex-row justify-between gap-[12px] items-center rounded-[10px] cursor-pointer hover:border-[3px] hover:border-sadar-fourth-black"
             onClick={keinfoPersonal}

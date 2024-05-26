@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import History from "../../assets/History.svg";
 import HoverHistory from "../../assets/HoverHistory.svg";
 import PickUp from "../../img/Icon-PickUp.png";
@@ -8,18 +9,50 @@ import DropOff from "../../img/Icon-Drop-Off.png";
 import Navbar from "../../components/Navbar";
 
 function ProsesPage() {
-  const valueNavbar = 'proses';
+  const [filter, setFilter] = useState("all");
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
-  
+  const valueNavbar = "proses";
+
+  const token = sessionStorage.getItem("jwttoken");
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get(
+          "https://kelompok4-dot-personal-website-415207.et.r.appspot.com/process/list-order",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setOrders(response.data.listPickUp);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
+  }, [token]);
+
   function keRiwayatTransaksi() {
-    navigate('/riwayat-transaksi');
+    navigate("/riwayat-transaksi");
   }
-  
-  function keDetailRiwayat(jenisPesanan,kodePemesanan) {
+
+  function keDetailRiwayat(jenisPesanan, kodePemesanan) {
     navigate(`/detail-riwayat/${jenisPesanan}/${kodePemesanan}`);
   }
 
-  const [filter, setFilter] = useState("all");
+  function keProsesCek(jenisPesanan, kodePemesanan) {
+    navigate(`/proses/cek/${jenisPesanan}/${kodePemesanan}`);
+  }
+
+  console.log(orders);
 
   return (
     <div>
@@ -27,7 +60,10 @@ function ProsesPage() {
         <div className="pb-[20px] font-normal text-[15px]">
           <div className="w-full h-fit flex flex-row items-center justify-between pb-[10px]">
             <div className="font-bold text-[25px] p-[10px]">Process </div>
-            <div className="relative cursor-pointer" onClick={keRiwayatTransaksi}>
+            <div
+              className="relative cursor-pointer"
+              onClick={keRiwayatTransaksi}
+            >
               <img src={History} alt="" className="" />
               <img
                 src={HoverHistory}
@@ -73,68 +109,72 @@ function ProsesPage() {
                 Drop Off
               </button>
             </div>
-            {/* Pick Up */}
-            <div className="flex flex-col py-[10px] gap-[10px]">
-              <div
-                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] cursor-pointer ${
-                  filter === "all" || filter === "pickup" ? "" : "hidden"
-                }`} 
-                onClick={() => keDetailRiwayat("pickup","RNG7J7A")}
-              >
-                <div className="p-[10px] bg-sadar-primary-color border-0 rounded-t-[10px] flex flex-row justify-between">
-                  <div className="font-medium text-[13px]">
-                    Kode Pemesanan <div className="font-bold">RNG7J7A</div>
-                  </div>
-                  <span className="py-[8px] px-[13px] rounded-[10px] text-[15px] font-medium border bg-[#EBFBEE] text-[#2AB445] pointer-events-none">
-                    Selesai
-                  </span>
-                </div>
-                <div className="flex flex-row justify-center py-[20px] px-[15px] gap-[10px] items-center border-0 rounded-b-[10px] bg-sadar-second-white">
-                  <img
-                    src={PickUp}
-                    alt=""
-                    className="border-0 rounded-[10px]"
-                  />
-                  <div className="font-extrabold text-[30px]">PICK UP</div>
-                </div>
-              </div>
-              {/* DropOff */}
-              <div
-                className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] cursor-pointer ${
-                  filter === "all" || filter === "dropoff" ? "" : "hidden"
-                }`}
-                onClick={() => keDetailRiwayat("dropoff","KUI8K8A")}
-              >
-                <div className="p-[10px] bg-sadar-primary-color border-0 rounded-t-[10px] flex flex-row justify-between">
-                  <div className="font-medium text-[13px]">
-                    Kode Pemesanan <div className="font-bold">KUI8K8A</div>
-                  </div>
-                  <span className="py-[8px] px-[13px] rounded-[10px] text-[15px] font-medium border bg-[#EBFBEE] text-[#2AB445] pointer-events-none">
-                    Selesai
-                  </span>
-                </div>
-                <div className="flex flex-col justify-center pt-[15px] px-[15px] pb-[10px] items-center border-0 rounded-b-[10px] bg-sadar-second-white">
-                  <div className="flex flex-row items-center gap-[10px]">
-                    <img
-                      src={DropOff}
-                      alt=""
-                      className="border-0 rounded-[10px]"
-                    />
-                    <div className="font-extrabold text-[30px]">DROP OFF</div>
-                  </div>
-                  <div className="flex flex-row items-center justify-between w-full py-[5px] px-[10px]">
-                    <div className="font-semibold text-[13px]">Pak Ahmad</div>
-                    <span className="py-[8px] px-[10px] rounded-[10px] text-[13px] font-semibold border bg-sadar-primary-color text-t-white  hover:bg-sadar-thrid-black">
-                      Chat
-                    </span>
-                  </div>
-                </div>
-              </div>
+
+            <div className="mt-[20px] flex flex-col gap-[20px]">
+              {/* Orders List */}
+              {loading ? (
+                <div>Loading...</div>
+              ) : error ? (
+                <div>Error: {error}</div>
+              ) : (
+                orders
+                  .filter(
+                    (order) =>
+                      filter === "all" ||
+                      (order.status &&
+                        order.status.namaStatus.toLowerCase() === filter)
+                  )
+                  .map((order) => (
+                    <div
+                      key={order.idPickUp}
+                      className={`shadow-[0px_4px_4px_0px_#00000025] border-0 rounded-[10px] cursor-pointer ${
+                        filter === "all" ||
+                        (order.status &&
+                          order.status.namaStatus.toLowerCase() === filter)
+                          ? ""
+                          : "hidden"
+                      }`}
+                      onClick={() =>
+                        //  keProsesCek
+                        keProsesCek(
+                          order.status
+                            ? order.status.namaStatus.toLowerCase()
+                            : "unknown",
+                          order.idPickUp
+                        )
+                      }
+                    >
+                      <div className="p-[10px] bg-sadar-primary-color border-0 rounded-t-[10px] flex flex-row justify-between">
+                        <div className="font-medium text-[13px]">
+                          Kode Pemesanan{" "}
+                          <div className="font-bold">{order.idPickUp}</div>
+                        </div>
+                        <span className="py-[8px] px-[13px] rounded-[10px] text-[15px] font-medium border bg-[#EBFBEE] text-[#2AB445] pointer-events-none">
+                          {order.status ? order.status.namaStatus : "Unknown"}
+                        </span>
+                      </div>
+                      <div className="flex flex-row justify-center py-[20px] px-[15px] gap-[10px] items-center border-0 rounded-b-[10px] bg-sadar-second-white">
+                        <img
+                          src={
+                            order.status &&
+                            order.status.namaStatus.toLowerCase() === "pickup"
+                              ? PickUp
+                              : DropOff
+                          }
+                          alt=""
+                          className="border-0 rounded-[10px]"
+                        />
+                        <div className="font-extrabold text-[30px]">
+                          PICK UP
+                        </div>
+                      </div>
+                    </div>
+                  ))
+              )}
             </div>
           </div>
         </div>
       </div>
-      {/* navbar */}
       <div className="bottom-0 fixed w-screen border border-sadar-secondary-color bg-white">
         <Navbar value={valueNavbar}></Navbar>
       </div>
