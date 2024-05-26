@@ -22,6 +22,7 @@ import RiwayatTransaksi from './pages/proses/RiwayatTransaksi';
 import DetailRiwayatPage from './pages/proses/DetailRiwayatPage';
 import RegisterPageLanjut from './pages/auth/RegisterPageLanjut'
 import NotifikasiPage from './pages/home/NotifikasiPage'
+import CekProsesPage from './pages/proses/ListOrder'
 
 // Fitur Pick Up
 import PickupOrderForm from './pages/pick-up/PickUpOrderForm';
@@ -81,6 +82,7 @@ function App() {
 
         {/* Halaman Proses */}
         <Route path="/proses" element={<ProsesPage />} />
+        <Route path="/proses/cek/:jenisPesanan/:kodePemesanan" element={<CekProsesPage />} />
 
         {/* Halaman RiwayatTransaksi */}
         <Route path="/riwayat-transaksi" element={<RiwayatTransaksi />} />
